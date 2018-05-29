@@ -1,0 +1,14 @@
+.vs/
+
+VkPhotos/bin/
+VkPhotos/obj/
+VkPhotos/_pkginfo.txt
+VkPhotos/BundleArtifacts/
+
+*.appx
+*.nuget.props
+*.nuget.targets
+*.csproj.user
+Package.StoreAssociation.xml
+project.lock.json
+PrivateData.cs

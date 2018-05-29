@@ -1,0 +1,11 @@
+﻿<ContentDialog
+    x:Class="VkPhotos.View.ShareDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Uid="ContentDialog_Share"
+    Title="Shared link"
+    PrimaryButtonText="Copy"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="OnCopyButtonClicked">
+    <TextBox x:Name="SharedLink" Margin="0,20,0,0"/>
+</ContentDialog>

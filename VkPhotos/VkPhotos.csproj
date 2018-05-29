@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{7FF12AC8-00B9-4123-AAFB-D23E931EF13D}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VkPhotos</RootNamespace>
+    <AssemblyName>VkPhotos</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>VkPhotos_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>0FC568AA34165D812FB29FD6280583E18301A296</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxPackageDir>I:\Windows Store\Packages\</AppxPackageDir>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Aerial.scale-100.jpg" />
+    <Content Include="Resources\Aerial.scale-125.jpg" />
+    <Content Include="Resources\Aerial.scale-150.jpg" />
+    <Content Include="Resources\Aerial.scale-200.jpg" />
+    <Content Include="Resources\Aerial.scale-400.jpg" />
+    <Content Include="Resources\Package\Badge.scale-100.png" />
+    <Content Include="Resources\Package\Badge.scale-125.png" />
+    <Content Include="Resources\Package\Badge.scale-150.png" />
+    <Content Include="Resources\Package\Badge.scale-200.png" />
+    <Content Include="Resources\Package\Badge.scale-400.png" />
+    <Content Include="Resources\Package\Splash.scale-100.png" />
+    <Content Include="Resources\Package\Splash.scale-125.png" />
+    <Content Include="Resources\Package\Splash.scale-150.png" />
+    <Content Include="Resources\Package\Splash.scale-200.png" />
+    <Content Include="Resources\Package\Splash.scale-400.png" />
+    <Content Include="Resources\Package\Square_150x150.scale-100.png" />
+    <Content Include="Resources\Package\Square_150x150.scale-125.png" />
+    <Content Include="Resources\Package\Square_150x150.scale-150.png" />
+    <Content Include="Resources\Package\Square_150x150.scale-200.png" />
+    <Content Include="Resources\Package\Square_150x150.scale-400.png" />
+    <Content Include="Resources\Package\Square_310x310.scale-100.png" />
+    <Content Include="Resources\Package\Square_310x310.scale-125.png" />
+    <Content Include="Resources\Package\Square_310x310.scale-150.png" />
+    <Content Include="Resources\Package\Square_310x310.scale-200.png" />
+    <Content Include="Resources\Package\Square_310x310.scale-400.png" />
+    <Content Include="Resources\Package\Square_44x44.scale-100.png" />
+    <Content Include="Resources\Package\Square_44x44.scale-125.png" />
+    <Content Include="Resources\Package\Square_44x44.scale-150.png" />
+    <Content Include="Resources\Package\Square_44x44.scale-200.png" />
+    <Content Include="Resources\Package\Square_44x44.scale-400.png" />
+    <Content Include="Resources\Package\Square_44x44.targetsize-16_altform-unplated.png" />
+    <Content Include="Resources\Package\Square_44x44.targetsize-24_altform-unplated.png" />
+    <Content Include="Resources\Package\Square_44x44.targetsize-256_altform-unplated.png" />
+    <Content Include="Resources\Package\Square_44x44.targetsize-48_altform-unplated.png" />
+    <Content Include="Resources\Package\Square_71x71.scale-100.png" />
+    <Content Include="Resources\Package\Square_71x71.scale-125.png" />
+    <Content Include="Resources\Package\Square_71x71.scale-150.png" />
+    <Content Include="Resources\Package\Square_71x71.scale-200.png" />
+    <Content Include="Resources\Package\Square_71x71.scale-400.png" />
+    <Content Include="Resources\Package\Store.scale-100.png" />
+    <Content Include="Resources\Package\Store.scale-125.png" />
+    <Content Include="Resources\Package\Store.scale-150.png" />
+    <Content Include="Resources\Package\Store.scale-200.png" />
+    <Content Include="Resources\Package\Store.scale-400.png" />
+    <Content Include="Resources\Package\Wide_310x150.scale-100.png" />
+    <Content Include="Resources\Package\Wide_310x150.scale-125.png" />
+    <Content Include="Resources\Package\Wide_310x150.scale-150.png" />
+    <Content Include="Resources\Package\Wide_310x150.scale-200.png" />
+    <Content Include="Resources\Package\Wide_310x150.scale-400.png" />
+    <Content Include="Resources\Road.scale-100.jpg" />
+    <Content Include="Resources\Road.scale-125.jpg" />
+    <Content Include="Resources\Road.scale-150.jpg" />
+    <Content Include="Resources\Road.scale-200.jpg" />
+    <Content Include="Resources\Road.scale-400.jpg" />
+    <Content Include="Screenshots\0.jpg" />
+    <Content Include="Screenshots\1.jpg" />
+    <Content Include="Screenshots\2.jpg" />
+    <Content Include="Screenshots\3.jpg" />
+    <Content Include="Screenshots\4.jpg" />
+    <Content Include="Screenshots\5.jpg" />
+    <Content Include="Screenshots\6.jpg" />
+    <Content Include="Screenshots\7.jpg" />
+    <Content Include="Screenshots\8.jpg" />
+    <None Include="Package.StoreAssociation.xml" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screenshots\Data\ScreenshotsDataPhoto.cs" />
+    <Compile Include="Screenshots\Data\ScreenshotsPhotoMetadata.cs" />
+    <Compile Include="Screenshots\Data\ScreenshotsPhotoProvider.cs" />
+    <Compile Include="Screenshots\Model\ScreenshotsPhoto.cs" />
+    <Compile Include="Screenshots\Model\ScreenshotsPhotoCollection.cs" />
+    <Compile Include="Screenshots\Model\ScreenshotsPicture.cs" />
+    <Compile Include="Screenshots\Model\ScreenshotsPreviewPicture.cs" />
+    <Compile Include="Source\Activation\Activation.cs" />
+    <Compile Include="Source\Activation\ActivationType.cs" />
+    <Compile Include="Source\Activation\SharedLink.cs" />
+    <Compile Include="Source\Common\OwnerId.cs" />
+    <Compile Include="Source\Common\PastPeriod.cs" />
+    <Compile Include="Source\Common\PhotoTag.cs" />
+    <Compile Include="Source\Constants.cs" />
+    <Compile Include="Source\Data\Debug\DebugStatsProvider.cs" />
+    <Compile Include="Source\Data\HttpClient\HttpClientException.cs" />
+    <Compile Include="Source\Data\HttpClient\IHttpClient.cs" />
+    <Compile Include="Source\Data\HttpClient\WindowsStoreHttpClient.cs" />
+    <Compile Include="Source\Data\Interface\IGeoLocation.cs" />
+    <Compile Include="Source\Data\Interface\IGeoLocationProvider.cs" />
+    <Compile Include="Source\Data\Interface\IPhoto.cs" />
+    <Compile Include="Source\Data\Interface\IPhotoMetadata.cs" />
+    <Compile Include="Source\Data\Interface\IPhotoProvider.cs" />
+    <Compile Include="Source\Data\Interface\IStatsProvider.cs" />
+    <Compile Include="Source\Data\Interface\IUser.cs" />
+    <Compile Include="Source\Data\Interface\IUserProvider.cs" />
+    <Compile Include="Source\Data\Interface\PhotosSearchResult.cs" />
+    <Compile Include="Source\Data\IpApi\IpApiGeoLocation.cs" />
+    <Compile Include="Source\Data\IpApi\IpApiGeoLocationProvider.cs" />
+    <Compile Include="Source\Data\Vk\VkAuthorization.cs" />
+    <Compile Include="Source\Data\Vk\VkPhoto.cs" />
+    <Compile Include="Source\Data\Vk\VkPhotoMetadata.cs" />
+    <Compile Include="Source\Data\Vk\VkPhotoProvider.cs" />
+    <Compile Include="Source\Data\Vk\VkRequestException.cs" />
+    <Compile Include="Source\Data\Vk\VkStatsProvider.cs" />
+    <Compile Include="Source\Data\Vk\VkUser.cs" />
+    <Compile Include="Source\Data\Vk\VkUserProvider.cs" />
+    <Compile Include="Source\Model\ApplicationModel.cs" />
+    <Compile Include="Source\Model\LocalFiles\LocalFileCollection.cs" />
+    <Compile Include="Source\Model\LocalFiles\LocalFileFolderSize.cs" />
+    <Compile Include="Source\Model\MapView\MapView.cs" />
+    <Compile Include="Source\Model\MapView\MapViewSettings.cs" />
+    <Compile Include="Source\Model\Map\Clusterization\Clusterer.cs" />
+    <Compile Include="Source\Model\Map\Clusterization\Node.cs" />
+    <Compile Include="Source\Model\Map\Clusterization\NodeAddress.cs" />
+    <Compile Include="Source\Model\Map\Clusterization\NodeAddressCell.cs" />
+    <Compile Include="Source\Model\Map\GeoObject.cs" />
+    <Compile Include="Source\Model\Map\GeoPoint.cs" />
+    <Compile Include="Source\Model\Map\GeoTile.cs" />
+    <Compile Include="Source\Model\Map\GeoTileWithObjects.cs" />
+    <Compile Include="Source\Model\Map\Interface\IMapClusterElement.cs" />
+    <Compile Include="Source\Model\Map\Interface\IMapObjectElement.cs" />
+    <Compile Include="Source\Model\Map\Interface\IMapObjectElementContext.cs" />
+    <Compile Include="Source\Model\Map\Interface\IMapObjectsFilter.cs" />
+    <Compile Include="Source\Model\Map\Objects\MapControlEventSampler.cs" />
+    <Compile Include="Source\Model\Map\Objects\MapControlEventSampler_Events.cs" />
+    <Compile Include="Source\Model\Map\Objects\MapObjects.cs" />
+    <Compile Include="Source\Model\Map\Objects\MapObjectsFilter.cs" />
+    <Compile Include="Source\Model\Map\Objects\ObjectPool.cs" />
+    <Compile Include="Source\Model\Map\Tiles\TileMatrix.cs" />
+    <Compile Include="Source\Model\Photos\Photo.cs" />
+    <Compile Include="Source\Model\Photos\PhotoBatchResult.cs" />
+    <Compile Include="Source\Model\Photos\PhotoCollection.cs" />
+    <Compile Include="Source\Model\Photos\ProgressivePhotoSearch.cs" />
+    <Compile Include="Source\Model\Picture\CacheablePicture.cs" />
+    <Compile Include="Source\Model\Picture\CachedUserPicture.cs" />
+    <Compile Include="Source\Model\Picture\InMemoryPicture.cs" />
+    <Compile Include="Source\Model\Picture\IPictureStreamReadinessInformation.cs" />
+    <Compile Include="Source\Model\Picture\UserPicture.cs" />
+    <Compile Include="Source\Model\Users\User.cs" />
+    <Compile Include="Source\Model\Users\Users.cs" />
+    <Compile Include="Source\PrivateData.cs" />
+    <Compile Include="Source\Settings.cs" />
+    <Compile Include="Source\ViewModel\MapContext.cs" />
+    <Compile Include="Source\ViewModel\Primitivies\PageContext.cs" />
+    <Compile Include="Source\ViewModel\PhotoListContext.cs" />
+    <Compile Include="Source\ViewModel\SettingsContext.cs" />
+    <Compile Include="Source\View\AuthorizationPage.xaml.cs">
+      <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\Content\ExtendedAboutPageContent.xaml.cs">
+      <DependentUpon>ExtendedAboutPageContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\Controls\CircleImage.xaml.cs">
+      <DependentUpon>CircleImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\Controls\DetailItem.xaml.cs">
+      <DependentUpon>DetailItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\Controls\Image.xaml.cs">
+      <DependentUpon>Image.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\Controls\MapCluster.xaml.cs">
+      <DependentUpon>MapCluster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\Controls\MapPhoto.xaml.cs">
+      <DependentUpon>MapPhoto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\Controls\MapSettings.xaml.cs">
+      <DependentUpon>MapSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\Controls\PhotoView.cs" />
+    <Compile Include="Source\View\Controls\ProgressIndicator.xaml.cs">
+      <DependentUpon>ProgressIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\Converters\Converters.cs" />
+    <Compile Include="Source\View\Dialog\ShareDialog.xaml.cs">
+      <DependentUpon>ShareDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\MapPage.xaml.cs">
+      <DependentUpon>MapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\OverlaidContent\PictureViewContent.xaml.cs">
+      <DependentUpon>PictureViewContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\PhotoListPage.xaml.cs">
+      <DependentUpon>PhotoListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\View\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Strings\Strings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <PRIResource Include="Strings\ru-RU\Resources.resw" />
+    <None Include="VkPhotos_StoreKey.pfx" />
+    <None Include="VkPhotos_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Source\View\Content\ExtendedAboutPageContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\Controls\CircleImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\Controls\DetailItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\Controls\Image.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\Controls\MapCluster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\Controls\MapPhoto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\Controls\MapSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\AuthorizationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\Controls\ProgressIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Source\View\Dialog\ShareDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\MapPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\OverlaidContent\PictureViewContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\PhotoListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Source\View\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Venz\Venz.Async\Venz.Async.csproj">
+      <Project>{c0a53593-d8cd-4cfa-b1ee-c133aad56120}</Project>
+      <Name>Venz.Async</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Venz\Venz.Core\Venz.Core.csproj">
+      <Project>{13bd17b3-dacf-4d01-9100-754b307eaef5}</Project>
+      <Name>Venz.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Venz\Venz.Extensions\Venz.Extensions.csproj">
+      <Project>{04bb7d9d-6f87-4b6d-b1bc-b9fce6c10ce6}</Project>
+      <Name>Venz.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Venz\Venz.Images\Venz.Images.csproj">
+      <Project>{df5f366a-3ad0-410b-a1b2-b94719c551b1}</Project>
+      <Name>Venz.Images</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Venz\Venz.Telemetry.Yandex\Venz.Telemetry.Yandex.csproj">
+      <Project>{29396881-358f-4ca9-8289-5d4e1dc0b99e}</Project>
+      <Name>Venz.Telemetry.Yandex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Venz\Venz.Telemetry\Venz.Telemetry.csproj">
+      <Project>{17b81b49-acf8-4e05-8930-f06b07f17182}</Project>
+      <Name>Venz.Telemetry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Venz\Venz.Windows\Venz.Windows.csproj">
+      <Project>{b3f0bd5a-3d5f-474b-ad8a-fcca5c7156f1}</Project>
+      <Name>Venz.Windows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\..\Venz\Venz.UI.Xaml.Controls\Venz.UI.Xaml.Controls.projitems" Label="Shared" />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

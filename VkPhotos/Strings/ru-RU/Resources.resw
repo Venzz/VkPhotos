@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Button_About.Label" xml:space="preserve">
+    <value>О приложении</value>
+  </data>
+  <data name="Button_Clear.Label" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="Button_Close.Label" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="Button_LocationSettings.Label" xml:space="preserve">
+    <value>Открыть настройки расположения</value>
+  </data>
+  <data name="Button_Properties.Label" xml:space="preserve">
+    <value>Свойства</value>
+  </data>
+  <data name="Button_Save.Label" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Button_Search.Label" xml:space="preserve">
+    <value>Найти</value>
+  </data>
+  <data name="Button_Share.Label" xml:space="preserve">
+    <value>Поделиться</value>
+  </data>
+  <data name="Button_Share_CopyMenuItem.Text" xml:space="preserve">
+    <value>Скопировать ссылку в буфер обмена</value>
+  </data>
+  <data name="Button_Share_ShareMenuItem.Text" xml:space="preserve">
+    <value>Поделиться</value>
+  </data>
+  <data name="ContentDialog_Share.PrimaryButtonText" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="ContentDialog_Share.SecondaryButtonText" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="ContentDialog_Share.Title" xml:space="preserve">
+    <value>Общая ссылка</value>
+  </data>
+  <data name="Control_MapSettings_Aerial.Text" xml:space="preserve">
+    <value>Спутник</value>
+  </data>
+  <data name="Control_MapSettings_Road.Text" xml:space="preserve">
+    <value>Дорога</value>
+  </data>
+  <data name="Message_NoButton" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="Message_Review_Header" xml:space="preserve">
+    <value>Нравится приложение?</value>
+  </data>
+  <data name="Message_Review_Text" xml:space="preserve">
+    <value>Пожалуйста, потратьте минутку и оцените приложение.</value>
+  </data>
+  <data name="Message_SharedLinkCreationFailed_Header" xml:space="preserve">
+    <value>Общая ссылка</value>
+  </data>
+  <data name="Message_SharedLinkCreationFailed_Text" xml:space="preserve">
+    <value>Не удается открыть эту ссылку.</value>
+  </data>
+  <data name="Message_SharedLinkNavigationConfirmation_Header" xml:space="preserve">
+    <value>Общая ссылка</value>
+  </data>
+  <data name="Message_SharedLinkNavigationConfirmation_Text" xml:space="preserve">
+    <value>Хотите ли вы просмотреть ссылку прямо сейчас?</value>
+  </data>
+  <data name="Message_SignOutWarning_Header" xml:space="preserve">
+    <value>Учетная запись</value>
+  </data>
+  <data name="Message_SignOutWarning_Text" xml:space="preserve">
+    <value>Вы уверены, что хотите выйти?</value>
+  </data>
+  <data name="Message_YesButton" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="OverlaidContent_PictureViewDetails_Author.Header" xml:space="preserve">
+    <value>Автор</value>
+  </data>
+  <data name="OverlaidContent_PictureViewDetails_Date.Header" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="OverlaidContent_PictureViewDetails_Header.Text" xml:space="preserve">
+    <value>Подробности</value>
+  </data>
+  <data name="OverlaidContent_PictureViewDetails_Text.Header" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="Page_Map_PrimaryMenu_PersonalPhotos.Text" xml:space="preserve">
+    <value>Личные фотографии</value>
+  </data>
+  <data name="Page_Map_PrimaryMenu_PublicPhotos.Text" xml:space="preserve">
+    <value>Публичные фотографии</value>
+  </data>
+  <data name="Page_Map_PrimaryMenu_SharedLink.Text" xml:space="preserve">
+    <value>Общая ссылка</value>
+  </data>
+  <data name="Page_Map_SecondaryMenu_SignIn.Text" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="Page_Map_UserLocationButton_Warning.Text" xml:space="preserve">
+    <value>Мы не можем получить доступ к вашему расположению. Позвольте приложению получить к нему доступ, чтобы мы могли найти вас.</value>
+  </data>
+  <data name="Page_PhotoList_Header" xml:space="preserve">
+    <value>{0} фотографий</value>
+  </data>
+  <data name="Page_Settings_AutomaticSearch.Header" xml:space="preserve">
+    <value>Искать фотографии автоматически</value>
+  </data>
+  <data name="Page_Settings_Caching.Header" xml:space="preserve">
+    <value>Кэширование</value>
+  </data>
+  <data name="Page_Settings_From.Header" xml:space="preserve">
+    <value>От</value>
+  </data>
+  <data name="Page_Settings_Header.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="Page_Settings_PastPeriod.Header" xml:space="preserve">
+    <value>Прошедший период времени</value>
+  </data>
+  <data name="Page_Settings_SpecifiedPeriod.Header" xml:space="preserve">
+    <value>Указанный период</value>
+  </data>
+  <data name="Page_Settings_To.Header" xml:space="preserve">
+    <value>До</value>
+  </data>
+  <data name="ProgressIndicator_GettingPhotos" xml:space="preserve">
+    <value>Получение фотографий...</value>
+  </data>
+  <data name="ProgressIndicator_Loading" xml:space="preserve">
+    <value>Загрузка...</value>
+  </data>
+  <data name="ProgressIndicator_SearchingPhotos" xml:space="preserve">
+    <value>Поиск фотографий...</value>
+  </data>
+  <data name="ProgressIndicator_SearchingPhotosResult_Error" xml:space="preserve">
+    <value>Не удалось получить фотографии.</value>
+  </data>
+  <data name="ProgressIndicator_SearchingPhotosResult_ManyPhotos" xml:space="preserve">
+    <value>{0} новых фотографий.</value>
+  </data>
+  <data name="ProgressIndicator_SearchingPhotosResult_NoPhotos" xml:space="preserve">
+    <value>Нет новых фотографий.</value>
+  </data>
+  <data name="ProgressIndicator_SearchingPhotosResult_OnePhoto" xml:space="preserve">
+    <value>{0} новая фотография.</value>
+  </data>
+  <data name="Text_Bytes" xml:space="preserve">
+    <value>б</value>
+  </data>
+  <data name="Text_Day" xml:space="preserve">
+    <value>День</value>
+  </data>
+  <data name="Text_GigaBytes" xml:space="preserve">
+    <value>гб</value>
+  </data>
+  <data name="Text_Hour" xml:space="preserve">
+    <value>Час</value>
+  </data>
+  <data name="Text_KiloBytes" xml:space="preserve">
+    <value>кб</value>
+  </data>
+  <data name="Text_LocalFileFolderSize" xml:space="preserve">
+    <value>{0} файлов, {1} данных.</value>
+  </data>
+  <data name="Text_LocalFileFolderSize_Empty" xml:space="preserve">
+    <value>0 файлов.</value>
+  </data>
+  <data name="Text_MegaBytes" xml:space="preserve">
+    <value>мб</value>
+  </data>
+  <data name="Text_Month" xml:space="preserve">
+    <value>Месяц</value>
+  </data>
+  <data name="Text_ShareMapView_Description" xml:space="preserve">
+    <value>Настройки просмотра карты</value>
+  </data>
+  <data name="Text_ShareMapView_Title" xml:space="preserve">
+    <value>Поделились с помощью приложения {0}</value>
+  </data>
+  <data name="Text_Year" xml:space="preserve">
+    <value>Год</value>
+  </data>
+</root>

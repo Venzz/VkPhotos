@@ -1,0 +1,44 @@
+﻿<UserControl
+    x:Class="VkPhotos.View.Controls.MapSettings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel Orientation="Horizontal">
+        <Grid
+            x:Name="AerialControl"
+            BorderThickness="2"
+            BorderBrush="Green"
+            Margin="0,0,4,0"
+            Width="100"
+            Height="100"
+            Tapped="OnAerialTapped">
+            <Image Source="/Resources/Aerial.jpg"/>
+            <Rectangle Height="24" VerticalAlignment="Bottom" Fill="Black" Opacity="0.65"/>
+            <TextBlock
+                x:Uid="Control_MapSettings_Aerial"
+                Margin="6,0,0,6"
+                TextLineBounds="Tight"
+                VerticalAlignment="Bottom"
+                Foreground="White"
+                Text="Aerial">
+            </TextBlock>
+        </Grid>
+        <Grid
+            x:Name="RoadControl"
+            BorderThickness="2"
+            Width="100"
+            Height="100"
+            Tapped="OnRoadTapped">
+            <Image Source="/Resources/Road.jpg"/>
+            <Rectangle Height="24" VerticalAlignment="Bottom" Fill="Black" Opacity="0.65"/>
+            <TextBlock
+                x:Uid="Control_MapSettings_Road"
+                Margin="6,0,0,6"
+                TextLineBounds="Tight"
+                VerticalAlignment="Bottom"
+                Foreground="White"
+                Text="Road">
+            </TextBlock>
+        </Grid>
+    </StackPanel>
+</UserControl>

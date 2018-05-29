@@ -1,0 +1,13 @@
+﻿<Core:Page
+    x:Class="VkPhotos.View.AuthorizationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+    xmlns:Core="using:Venz.UI.Xaml">
+
+    <Core:PageContent>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <WebView x:Name="WebView"/>
+        </Grid>
+    </Core:PageContent>
+</Core:Page>

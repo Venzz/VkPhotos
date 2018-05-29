@@ -1,0 +1,109 @@
+﻿<Core:Page
+    x:Class="VkPhotos.View.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+    xmlns:Core="using:Venz.UI.Xaml"
+    xmlns:Venz="using:Venz.UI.Xaml.Controls"
+    xmlns:Controls="using:VkPhotos.View.Controls"
+    xmlns:Converters="using:VkPhotos.View.Converters">
+
+    <Page.Resources>
+        <Converters:BooleanToVisibility x:Key="TrueToCollapsed" TrueValue="Collapsed" FalseValue="Visible"/>
+    </Page.Resources>
+    
+    <Core:PageContent>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock
+                    x:Uid="Page_Settings_Header"
+                    Margin="12,0,0,20"
+                    Style="{StaticResource SubheaderTextBlockStyle}"
+                    Text="Settings">
+                </TextBlock>
+                <StackPanel Grid.Row="1" Margin="12,0,0,40">
+                    <ToggleSwitch
+                        x:Uid="Page_Settings_AutomaticSearch"
+                        Header="Load photos automatically"
+                        IsOn="{x:Bind Context.AutomaticSearch, Mode=TwoWay}">
+                    </ToggleSwitch>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Margin="12,0,0,40">
+                    <ToggleSwitch
+                        x:Uid="Page_Settings_PastPeriod"
+                        Header="Past period of time"
+                        Margin="0,0,0,10"
+                        IsOn="{x:Bind Context.IsPastPeriodEnabled, Mode=OneWay}"
+                        Toggled="OnPastPeriodToggled">
+                    </ToggleSwitch>
+                    <ComboBox
+                        IsEnabled="{x:Bind Context.IsPastPeriodEnabled, Mode=OneWay}"
+                        ItemsSource="{x:Bind Context.PastPeriods}"
+                        SelectedItem="{x:Bind Context.SelectedPastPeriod}"
+                        SelectionChanged="OnPastPeriodChanged">
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Margin="12,0,0,40">
+                    <ToggleSwitch
+                        x:Uid="Page_Settings_SpecifiedPeriod"
+                        Header="Specified period"
+                        Margin="0,0,0,10"
+                        IsOn="{x:Bind Context.IsPeriodEnabled, Mode=OneWay}"
+                        Toggled="OnPeriodToggled">
+                    </ToggleSwitch>
+                    <DatePicker
+                        x:Uid="Page_Settings_From"
+                        Header="From"
+                        Margin="0,0,0,20"
+                        Date="{x:Bind Context.FromDate, Mode=TwoWay}"
+                        IsEnabled="{x:Bind Context.IsPeriodEnabled, Mode=OneWay}">
+                    </DatePicker>
+                    <DatePicker
+                        x:Uid="Page_Settings_To"
+                        Header="To"
+                        Date="{x:Bind Context.ToDate, Mode=TwoWay}"
+                        IsEnabled="{x:Bind Context.IsPeriodEnabled, Mode=OneWay}">
+                    </DatePicker>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Margin="12,0,0,40">
+                    <ToggleSwitch
+                        x:Uid="Page_Settings_Caching"
+                        Header="Caching"
+                        Margin="0,0,0,10"
+                        IsOn="{x:Bind Context.IsCachingEnabled, Mode=TwoWay}">
+                    </ToggleSwitch>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Venz:Button
+                            x:Uid="Button_Clear"
+                            Margin="0,0,12,0"
+                            IsEnabled="{x:Bind Context.IsClearCacheButtonEnabled, Mode=OneWay}"
+                            Click="OnClearCacheButtonClicked">
+                        </Venz:Button>
+                        <ProgressRing
+                            Grid.Column="1"
+                            IsActive="{x:Bind Context.IsLocalFilesOperationInProgress, Mode=OneWay}"
+                            HorizontalAlignment="Left">
+                        </ProgressRing>
+                        <TextBlock
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Text="{x:Bind Context.LocalFileFolderSize, Mode=OneWay}"
+                            Visibility="{x:Bind Context.IsLocalFilesOperationInProgress, Mode=OneWay, Converter={StaticResource TrueToCollapsed}}">
+                        </TextBlock>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Core:PageContent>
+</Core:Page>

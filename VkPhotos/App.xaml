@@ -1,0 +1,21 @@
+﻿<Core:Application
+    x:Class="VkPhotos.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Core="using:Venz.UI.Xaml">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <SolidColorBrush x:Key="AppMediumBrush" Color="{ThemeResource SystemBaseMediumColor}"/>
+                    <SolidColorBrush x:Key="AppAccentBrush" Color="{ThemeResource SystemAccentColor}"/>
+                    <SolidColorBrush x:Key="AppBackgroundBrush" Color="{ThemeResource SystemAltHighColor}"/>
+                    <SolidColorBrush x:Key="AppForegroundBrush" Color="{ThemeResource SystemBaseHighColor}"/>
+                    <SolidColorBrush x:Key="AppChromeBrush" Color="{ThemeResource SystemChromeMediumColor}"/>
+                    <SolidColorBrush x:Key="AppSoftChromeBrush" Color="{ThemeResource SystemChromeMediumLowColor}"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Core:Application>

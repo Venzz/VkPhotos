@@ -1,0 +1,307 @@
+﻿<Core:Page
+    x:Class="VkPhotos.View.MapPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+    xmlns:Core="using:Venz.UI.Xaml"
+    xmlns:Images="using:Venz.Images"
+    xmlns:Venz="using:Venz.UI.Xaml.Controls"
+    xmlns:Map="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:View="using:VkPhotos.View.Controls"
+    xmlns:Controls="using:VkPhotos.View.Controls"
+    xmlns:Converters="using:VkPhotos.View.Converters">
+
+    <Core:Page.Resources>
+        <Style x:Key="Button" TargetType="AppBarButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Width" Value="48"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="AppBarButton">
+                        <Grid x:Name="Root" Background="{TemplateBinding Background}" MaxWidth="{TemplateBinding MaxWidth}" MinWidth="{TemplateBinding MinWidth}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ApplicationViewStates">
+                                    <VisualState x:Name="FullSize"/>
+                                    <VisualState x:Name="Compact"/>
+                                    <VisualState x:Name="Overflow">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ContentRoot">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="OverflowWithToggleButtons">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ContentRoot">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="38,11,0,13"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="OverflowTextLabel"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="Root">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#80000000"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="Content">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="OverflowTextLabel"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="Root">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#99000000"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="Content">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="OverflowTextLabel"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="Content">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="Content" AutomationProperties.AccessibilityView="Raw" Content="{TemplateBinding Icon}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                            <TextBlock x:Name="OverflowTextLabel" Foreground="{TemplateBinding Foreground}" FontSize="15" FontFamily="{TemplateBinding FontFamily}" HorizontalAlignment="Stretch" Margin="12,11,0,13" TextAlignment="Left" TextWrapping="NoWrap" Text="{TemplateBinding Label}" TextTrimming="Clip" Visibility="Collapsed" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Converters:BooleanToVisibility x:Key="TrueToCollapsed" TrueValue="Collapsed" FalseValue="Visible"/>
+        <Converters:BooleanToVisibility x:Key="TrueToVisible" TrueValue="Visible" FalseValue="Collapsed"/>
+        <Converters:BooleanToDouble x:Key="IsUserAuthorizedToOpacity" TrueValue="1" FalseValue="0.35"/>
+    </Core:Page.Resources>
+
+    <Core:PageContent>
+        <Core:PageContent.NotificationsLayerContent>
+            <View:ProgressIndicator VerticalAlignment="Top"/>
+        </Core:PageContent.NotificationsLayerContent>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitView.DisplayMode" Value="CompactOverlay"/>
+                        <Setter Target="MenuHeader.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <SplitView x:Name="SplitView" DisplayMode="Overlay">
+                <SplitView.Pane>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ListView x:Name="PrimaryMenu" SelectionChanged="OnPrimaryMenuSelectionChanged">
+                            <ListView.ItemContainerTransitions>
+                                <TransitionCollection/>
+                            </ListView.ItemContainerTransitions>
+                            <Venz:SplitViewMenuHeader Text="Vk Photo Map"/>
+                            <Venz:SplitViewMenuItem x:Uid="Page_Map_PrimaryMenu_PublicPhotos">
+                                <Venz:SplitViewMenuItem.Icon>
+                                    <SymbolIcon Symbol="People"/>
+                                </Venz:SplitViewMenuItem.Icon>
+                            </Venz:SplitViewMenuItem>
+                            <Venz:SplitViewMenuItem x:Uid="Page_Map_PrimaryMenu_PersonalPhotos" Opacity="{x:Bind Context.IsUserAuthorized, Mode=OneWay, Converter={StaticResource IsUserAuthorizedToOpacity}}">
+                                <Venz:SplitViewMenuItem.Icon>
+                                    <SymbolIcon Symbol="Contact"/>
+                                </Venz:SplitViewMenuItem.Icon>
+                            </Venz:SplitViewMenuItem>
+                            <Venz:SplitViewMenuItem x:Uid="Page_Map_PrimaryMenu_SharedLink" x:Name="SharedLinkMenuItem">
+                                <Venz:SplitViewMenuItem.Icon>
+                                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72D;"/>
+                                </Venz:SplitViewMenuItem.Icon>
+                            </Venz:SplitViewMenuItem>
+                        </ListView>
+                        <ListView
+                            Grid.Row="1"
+                            SelectionMode="None"
+                            IsItemClickEnabled="True"
+                            ItemClick="OnSecondaryMenuItemClicked">
+                            <ListView.ItemContainerTransitions>
+                                <TransitionCollection/>
+                            </ListView.ItemContainerTransitions>
+                            <Grid>
+                                <Venz:SplitViewMenuItem
+                                    x:Uid="Page_Map_SecondaryMenu_SignIn"
+                                    Visibility="{x:Bind Context.IsUserAuthorized, Mode=OneWay, Converter={StaticResource TrueToCollapsed}}">
+                                    <Venz:SplitViewMenuItem.Icon>
+                                        <SymbolIcon Symbol="AddFriend"/>
+                                    </Venz:SplitViewMenuItem.Icon>
+                                </Venz:SplitViewMenuItem>
+                                <StackPanel
+                                    Margin="2,0,0,0"
+                                    Orientation="Horizontal"
+                                    Background="Transparent"
+                                    Visibility="{x:Bind Context.IsUserAuthorized, Mode=OneWay, Converter={StaticResource TrueToVisible}}">
+                                    <Controls:CircleImage
+                                        Margin="-4,-4,20,-4"
+                                        Width="28"
+                                        Height="28"
+                                        Images:PictureLoader.Source="{x:Bind Context.User.Photo, Mode=OneWay}">
+                                    </Controls:CircleImage>
+                                    <TextBlock Text="{x:Bind Context.User.Name, Mode=OneWay}"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListView>
+                    </Grid>
+                </SplitView.Pane>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid x:Name="MenuHeader" VerticalAlignment="Top" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+                        <ListViewItem HorizontalAlignment="Left" MinWidth="48" Width="44" Height="44" Tapped="OnPrimaryMenuHeaderIconTapped">
+                            <Venz:SplitViewMenuHeader/>
+                        </ListViewItem>
+                    </Grid>
+                    <Map:MapControl x:Name="Map" Grid.Row="1"/>
+                    <StackPanel
+                        Grid.Row="1"
+                        Margin="0,0,12,0"
+                        RequestedTheme="Dark"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Background="#66000000">
+                        <AppBarButton
+                            Style="{StaticResource Button}"
+                            Icon="Setting"
+                            Click="OnSettingsButtonClicked">
+                        </AppBarButton>
+                        <AppBarButton
+                            Style="{StaticResource Button}"
+                            Icon="Target"
+                            Click="OnUserLocationButtonClicked">
+                            <FlyoutBase.AttachedFlyout>
+                                <Flyout Placement="Left">
+                                    <Flyout.Content>
+                                        <StackPanel>
+                                            <TextBlock
+                                                x:Uid="Page_Map_UserLocationButton_Warning"
+                                                Margin="0,0,0,8"
+                                                Width="240"
+                                                TextWrapping="Wrap"
+                                                Text="We can't access your location. Allow the application to access your location to be able to move to your current location.">
+                                            </TextBlock>
+                                            <Venz:Button
+                                                x:Uid="Button_LocationSettings"
+                                                Style="{StaticResource TextBlockButtonStyle}"
+                                                Margin="-6,0"
+                                                Label="Open location settings"
+                                                Tapped="OnLocationSettingsButtonTapped">
+                                            </Venz:Button>
+                                        </StackPanel>
+                                    </Flyout.Content>
+                                </Flyout>
+                            </FlyoutBase.AttachedFlyout>
+                        </AppBarButton>
+                        <AppBarButton Style="{StaticResource Button}">
+                            <AppBarButton.Icon>
+                                <PathIcon
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Data="M 19.999943 9.9998956 10.000048 14.999843 1.524401e-4 9.9998956 3.3334509 8.3332459 10.000048 11.666545 16.666644 8.3332459 19.999943 9.9998956 Z M 10.000048 0 19.999943 4.9999475 10.000048 9.9998956 1.0020087e-4 4.9999475 10.000048 0 Z m 9.999895 14.999843 -9.999895 5 -9.99994779913 -5 3.33335069913 -1.666649 6.6665971 3.333298 6.666596 -3.333298 3.333299 1.666649 z">
+                                </PathIcon>
+                            </AppBarButton.Icon>
+                            <AppBarButton.Flyout>
+                                <Flyout Placement="Left">
+                                    <Flyout.Content>
+                                        <Controls:MapSettings x:Name="MapSettings"/>
+                                    </Flyout.Content>
+                                </Flyout>
+                            </AppBarButton.Flyout>
+                        </AppBarButton>
+                        <AppBarButton
+                            Style="{StaticResource Button}"
+                            Icon="Add"
+                            Click="OnZoomInButtonClicked">
+                        </AppBarButton>
+                        <AppBarButton
+                            Style="{StaticResource Button}"
+                            Icon="Remove"
+                            Click="OnZoomOutButtonClicked">
+                        </AppBarButton>
+                    </StackPanel>
+                </Grid>
+            </SplitView>
+            <CommandBar Grid.Row="1">
+                <AppBarButton
+                    x:Uid="Button_Share"
+                    x:Name="ShareButton">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE72D;"/>
+                    </AppBarButton.Icon>
+                    <AppBarButton.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem x:Uid="Button_Share_ShareMenuItem" Text="Share" Click="OnShareMenuItemClicked"/>
+                            <MenuFlyoutItem x:Uid="Button_Share_CopyMenuItem" Text="Copy link to clipboard" Click="OnCopyMenuItemClicked"/>
+                        </MenuFlyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+                <AppBarButton
+                    x:Uid="Button_Search"
+                    x:Name="SearchButton"
+                    Icon="Find"
+                    IsEnabled="{x:Bind Context.IsSearchButtonEnabled, Mode=OneWay}"
+                    Click="OnSearchButtonClicked">
+                </AppBarButton>
+                <AppBarButton
+                    x:Uid="Button_About"
+                    Icon="Help"
+                    Click="OnAboutButtonClicked">
+                </AppBarButton>
+            </CommandBar>
+        </Grid>
+    </Core:PageContent>
+</Core:Page>
