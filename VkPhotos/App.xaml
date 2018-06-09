@@ -6,14 +6,27 @@
 
     <Application.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Venz.UwpBridge/Source/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">
-                    <SolidColorBrush x:Key="AppMediumBrush" Color="{ThemeResource SystemBaseMediumColor}"/>
-                    <SolidColorBrush x:Key="AppAccentBrush" Color="{ThemeResource SystemAccentColor}"/>
-                    <SolidColorBrush x:Key="AppBackgroundBrush" Color="{ThemeResource SystemAltHighColor}"/>
-                    <SolidColorBrush x:Key="AppForegroundBrush" Color="{ThemeResource SystemBaseHighColor}"/>
-                    <SolidColorBrush x:Key="AppChromeBrush" Color="{ThemeResource SystemChromeMediumColor}"/>
-                    <SolidColorBrush x:Key="AppSoftChromeBrush" Color="{ThemeResource SystemChromeMediumLowColor}"/>
+                    <SolidColorBrush x:Key="AppMediumBrush" Color="{ThemeResource PhoneBaseMidColor}"/>
+                    <SolidColorBrush x:Key="AppAccentBrush" Color="{ThemeResource SystemColorControlAccentColor}"/>
+                    <SolidColorBrush x:Key="AppBackgroundBrush" Color="{ThemeResource PhoneBackgroundColor}"/>
+                    <SolidColorBrush x:Key="AppForegroundBrush" Color="{ThemeResource PhoneForegroundColor}"/>
+                    <SolidColorBrush x:Key="AppChromeBrush" Color="{ThemeResource PhoneChromeColor}"/>
+                    <SolidColorBrush x:Key="AppSoftChromeBrush" Color="#FF2B2B2B"/>
+                    <SolidColorBrush x:Key="AppLowChromeBrush" Color="#FF171717"/>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="AppMediumBrush" Color="{ThemeResource PhoneBaseMidColor}"/>
+                    <SolidColorBrush x:Key="AppAccentBrush" Color="{ThemeResource SystemColorControlAccentColor}"/>
+                    <SolidColorBrush x:Key="AppBackgroundBrush" Color="{ThemeResource PhoneBackgroundColor}"/>
+                    <SolidColorBrush x:Key="AppForegroundBrush" Color="{ThemeResource PhoneForegroundColor}"/>
+                    <SolidColorBrush x:Key="AppChromeBrush" Color="{ThemeResource PhoneChromeColor}"/>
+                    <SolidColorBrush x:Key="AppSoftChromeBrush" Color="#FFF2F2F2"/>
+                    <SolidColorBrush x:Key="AppLowChromeBrush" Color="#FFF2F2F2"/>
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>

@@ -8,28 +8,29 @@
     xmlns:Model="using:VkPhotos.Model"
     xmlns:Controls="using:VkPhotos.View.Controls">
 
-    <Core:PageContent>
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Core:PageContent Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
             <Grid.Resources>
-                <CollectionViewSource x:Key="ContactsView" IsSourceGrouped="true" Source="{x:Bind Context.Items, Mode=OneWay}"/>
+                <CollectionViewSource x:Key="ContactsView" IsSourceGrouped="true" Source="{Binding Items}"/>
             </Grid.Resources>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock
-                Margin="12,0,0,20"
                 Style="{StaticResource SubheaderTextBlockStyle}"
-                Text="{x:Bind Context.Header, Mode=OneWay}">
+                Margin="19,0,0,20"
+                FontSize="42"
+                Text="{Binding Header}">
             </TextBlock>
             <SemanticZoom Grid.Row="1">
                 <SemanticZoom.ZoomedInView>
                     <Controls:PhotoView
                         x:Name="PhotoGrid"
-                        Margin="12,0,8,0"
+                        Margin="19,0,15,0"
                         SelectionMode="None"
                         IsItemClickEnabled="True"
-                        PhotoSize="{x:Bind Context.PhotoSize}"
+                        PhotoSize="{Binding PhotoSize}"
                         ItemsSource="{Binding Source={StaticResource ContactsView}}"
                         ItemClick="OnItemClicked">
                         <GridView.ItemTemplate>
@@ -44,6 +45,7 @@
                         </GridView.ItemTemplate>
                         <GridView.ItemContainerStyle>
                             <Style TargetType="GridViewItem">
+                                <Setter Property="Margin" Value="0,0,4,4"/>
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                                 <Setter Property="VerticalContentAlignment" Value="Stretch"/>
                             </Style>
@@ -61,9 +63,7 @@
                                                         Margin="{TemplateBinding Padding}"
                                                         Content="{TemplateBinding Content}"
                                                         ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                        ContentTransitions="{TemplateBinding ContentTransitions}"
-                                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                                                        ContentTransitions="{TemplateBinding ContentTransitions}">
                                                     </ContentPresenter>
                                                 </ControlTemplate>
                                             </Setter.Value>
@@ -73,9 +73,11 @@
                                 <GroupStyle.HeaderTemplate>
                                     <DataTemplate>
                                         <Button
-                                            FontSize="20"
-                                            Margin="-8,0"
                                             Style="{StaticResource TextBlockButtonStyle}"
+                                            Margin="-9,0"
+                                            FontFamily="Segoe UI"
+                                            FontSize="25"
+                                            FontWeight="Light"
                                             Content="{Binding Header}"
                                             Click="OnHeaderClicked">
                                         </Button>
@@ -88,58 +90,70 @@
                 <SemanticZoom.ZoomedOutView>
                     <ListView
                         x:Name="ZoomedOutView"
-                        SelectionMode="Single"
+                        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                         ItemsSource="{Binding CollectionGroups, Source={StaticResource ContactsView}}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
                                     <TextBlock
-                                        FontSize="20"
+                                        FontSize="24"
                                         VerticalAlignment="Center"
                                         Text="{Binding Group.Header}">
                                     </TextBlock>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
+                        <ListView.Header>
+                            <Grid Height="15"/>
+                        </ListView.Header>
                         <ListView.Footer>
-                            <Grid Height="24"/>
+                            <Grid Height="40"/>
                         </ListView.Footer>
+                        <ListView.Template>
+                            <ControlTemplate TargetType="ListView">
+                                <Grid>
+                                    <Rectangle Fill="{TemplateBinding Background}" Opacity="0.65"/>
+                                    <ScrollViewer x:Name="ScrollViewer" TabNavigation="{TemplateBinding TabNavigation}"
+                                        HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"
+                                        HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                        IsHorizontalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsHorizontalScrollChainingEnabled}"
+                                        VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"
+                                        VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                        IsVerticalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsVerticalScrollChainingEnabled}"
+                                        IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}"
+                                        IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}"
+                                        ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}"
+                                        IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                        BringIntoViewOnFocusChange="{TemplateBinding ScrollViewer.BringIntoViewOnFocusChange}"
+                                        AutomationProperties.AccessibilityView="Raw">
+                                        <ItemsPresenter Header="{TemplateBinding Header}"
+                                            HeaderTemplate="{TemplateBinding HeaderTemplate}"
+                                            HeaderTransitions="{TemplateBinding HeaderTransitions}"
+                                            Footer="{TemplateBinding Footer}"
+                                            FooterTemplate="{TemplateBinding FooterTemplate}"
+                                            FooterTransitions="{TemplateBinding FooterTransitions}"
+                                            Padding="{TemplateBinding Padding}"
+                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                        </ItemsPresenter>
+                                    </ScrollViewer>
+                                </Grid>
+                            </ControlTemplate>
+                        </ListView.Template>
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
                                 <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="Foreground" Value="{ThemeResource SystemControlHyperlinkTextBrush}"/>
+                                <Setter Property="Background" Value="{ThemeResource AppAccentBrush}"/>
+                                <Setter Property="Foreground" Value="White"/>
                                 <Setter Property="TabNavigation" Value="Local"/>
                                 <Setter Property="IsHoldingEnabled" Value="True"/>
-                                <Setter Property="Padding" Value="12,0,12,0"/>
+                                <Setter Property="Margin" Value="19,4"/>
+                                <Setter Property="Padding" Value="19,0"/>
                                 <Setter Property="HorizontalContentAlignment" Value="Left"/>
                                 <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                <Setter Property="MinWidth" Value="{ThemeResource ListViewItemMinWidth}"/>
+                                <Setter Property="MinWidth" Value="88"/>
                                 <Setter Property="MinHeight" Value="48"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="ListViewItem">
-                                            <ListViewItemPresenter
-                                                SelectedForeground="{ThemeResource SystemControlBackgroundBaseHighBrush}"
-                                                PointerOverForeground="{ThemeResource SystemControlHyperlinkBaseMediumBrush}"
-                                                CheckBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
-                                                ContentMargin="{TemplateBinding Padding}"
-                                                CheckMode="Inline"
-                                                ContentTransitions="{TemplateBinding ContentTransitions}"
-                                                CheckBoxBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
-                                                DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}"
-                                                FocusBorderBrush="{ThemeResource SystemControlForegroundAltHighBrush}"
-                                                FocusSecondaryBorderBrush="{ThemeResource SystemControlForegroundBaseHighBrush}"
-                                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                PlaceholderBackground="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}"
-                                                ReorderHintOffset="{ThemeResource ListViewItemReorderHintThemeOffset}"
-                                                SelectionCheckMarkVisualEnabled="True"
-                                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
-                                            </ListViewItemPresenter>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
                             </Style>
                         </ListView.ItemContainerStyle>
                     </ListView>

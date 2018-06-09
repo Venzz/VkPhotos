@@ -5,8 +5,8 @@
 
     xmlns:Controls="using:VkPhotos.View.Controls"
     
-    Width="52"
-    Height="52">
+    Width="64"
+    Height="64">
 
     <Grid x:Name="LayoutControl" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
@@ -15,6 +15,7 @@
         <Ellipse Fill="{StaticResource AppAccentBrush}"/>
         <TextBlock
             x:Name="AmountControl"
+            FontSize="19"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             TextLineBounds="Tight"

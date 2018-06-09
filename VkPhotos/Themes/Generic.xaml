@@ -3,5 +3,6 @@
         <ResourceDictionary Source="ms-appx:///Source/View/Controls/CircleImage.xaml"/>
         <ResourceDictionary Source="ms-appx:///Source/View/Controls/Image.xaml"/>
         <ResourceDictionary Source="ms-appx:///Source/View/Controls/DetailItem.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Source/Windows/UI/Xaml/Controls/SplitView.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -146,16 +146,8 @@ namespace VkPhotos.View
 
         private async void OnUserLocationButtonClicked(Object sender, RoutedEventArgs args)
         {
-            var accessStatus = await Geolocator.RequestAccessAsync();
-            if (accessStatus == GeolocationAccessStatus.Denied)
-            {
-                FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
-            }
-            else
-            {
-                var mapView = await App.Model.MapView.GetCurrentAsync();
-                await Map.TrySetViewAsync(mapView.Location.ToGeopoint(), mapView.ZoomLevel);
-            }
+            var mapView = await App.Model.MapView.GetCurrentAsync();
+            await Map.TrySetViewAsync(mapView.Location.ToGeopoint(), mapView.ZoomLevel);
         }
 
         private async void OnAuthorizationFailed(Object sender, EventArgs args)
@@ -273,13 +265,6 @@ namespace VkPhotos.View
             args.Request.Data.Properties.Title = String.Format(Strings.Text_ShareMapView_Title, Constants.ApplicationTitle);
             args.Request.Data.Properties.Description = Strings.Text_ShareMapView_Description;
             args.Request.Data.SetWebLink(new Uri($"http://vk-photos.appspot.com/share/v1?id={CreateSettingsId()}", UriKind.Absolute));
-        }
-
-        private void OnCopyMenuItemClicked(Object sender, RoutedEventArgs args)
-        {
-            var data = new DataPackage();
-            data.SetText($"http://vk-photos.appspot.com/share/v1?id={CreateSettingsId()}");
-            Clipboard.SetContent(data);
         }
 
         private String CreateSettingsId()

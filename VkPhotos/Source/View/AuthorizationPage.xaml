@@ -5,8 +5,8 @@
     
     xmlns:Core="using:Venz.UI.Xaml">
 
-    <Core:PageContent>
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Core:PageContent Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
             <WebView x:Name="WebView"/>
         </Grid>
     </Core:PageContent>

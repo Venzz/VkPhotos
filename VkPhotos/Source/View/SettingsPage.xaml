@@ -11,10 +11,10 @@
     <Page.Resources>
         <Converters:BooleanToVisibility x:Key="TrueToCollapsed" TrueValue="Collapsed" FalseValue="Visible"/>
     </Page.Resources>
-    
-    <Core:PageContent>
+
+    <Core:PageContent Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -24,60 +24,60 @@
                 </Grid.RowDefinitions>
                 <TextBlock
                     x:Uid="Page_Settings_Header"
-                    Margin="12,0,0,20"
+                    Margin="19,0,0,20"
                     Style="{StaticResource SubheaderTextBlockStyle}"
                     Text="Settings">
                 </TextBlock>
-                <StackPanel Grid.Row="1" Margin="12,0,0,40">
+                <StackPanel Grid.Row="1" Margin="19,0,19,40">
                     <ToggleSwitch
                         x:Uid="Page_Settings_AutomaticSearch"
                         Header="Load photos automatically"
-                        IsOn="{x:Bind Context.AutomaticSearch, Mode=TwoWay}">
+                        IsOn="{Binding AutomaticSearch}">
                     </ToggleSwitch>
                 </StackPanel>
-                <StackPanel Grid.Row="2" Margin="12,0,0,40">
+                <StackPanel Grid.Row="2" Margin="19,0,19,40">
                     <ToggleSwitch
                         x:Uid="Page_Settings_PastPeriod"
                         Header="Past period of time"
                         Margin="0,0,0,10"
-                        IsOn="{x:Bind Context.IsPastPeriodEnabled, Mode=OneWay}"
+                        IsOn="{Binding IsPastPeriodEnabled}"
                         Toggled="OnPastPeriodToggled">
                     </ToggleSwitch>
                     <ComboBox
-                        IsEnabled="{x:Bind Context.IsPastPeriodEnabled, Mode=OneWay}"
-                        ItemsSource="{x:Bind Context.PastPeriods}"
-                        SelectedItem="{x:Bind Context.SelectedPastPeriod}"
+                        IsEnabled="{Binding IsPastPeriodEnabled}"
+                        ItemsSource="{Binding PastPeriods, Mode=OneTime}"
+                        SelectedItem="{Binding SelectedPastPeriod, Mode=OneTime}"
                         SelectionChanged="OnPastPeriodChanged">
                     </ComboBox>
                 </StackPanel>
-                <StackPanel Grid.Row="3" Margin="12,0,0,40">
+                <StackPanel Grid.Row="3" Margin="19,0,19,40">
                     <ToggleSwitch
                         x:Uid="Page_Settings_SpecifiedPeriod"
                         Header="Specified period"
                         Margin="0,0,0,10"
-                        IsOn="{x:Bind Context.IsPeriodEnabled, Mode=OneWay}"
+                        IsOn="{Binding IsPeriodEnabled}"
                         Toggled="OnPeriodToggled">
                     </ToggleSwitch>
                     <DatePicker
                         x:Uid="Page_Settings_From"
                         Header="From"
                         Margin="0,0,0,20"
-                        Date="{x:Bind Context.FromDate, Mode=TwoWay}"
-                        IsEnabled="{x:Bind Context.IsPeriodEnabled, Mode=OneWay}">
+                        Date="{Binding FromDate, Mode=TwoWay}"
+                        IsEnabled="{Binding IsPeriodEnabled}">
                     </DatePicker>
                     <DatePicker
                         x:Uid="Page_Settings_To"
                         Header="To"
-                        Date="{x:Bind Context.ToDate, Mode=TwoWay}"
-                        IsEnabled="{x:Bind Context.IsPeriodEnabled, Mode=OneWay}">
+                        Date="{Binding ToDate, Mode=TwoWay}"
+                        IsEnabled="{Binding IsPeriodEnabled}">
                     </DatePicker>
                 </StackPanel>
-                <StackPanel Grid.Row="4" Margin="12,0,0,40">
+                <StackPanel Grid.Row="4" Margin="19,0,19,79">
                     <ToggleSwitch
                         x:Uid="Page_Settings_Caching"
                         Header="Caching"
                         Margin="0,0,0,10"
-                        IsOn="{x:Bind Context.IsCachingEnabled, Mode=TwoWay}">
+                        IsOn="{Binding IsCachingEnabled, Mode=TwoWay}">
                     </ToggleSwitch>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -87,19 +87,20 @@
                         <Venz:Button
                             x:Uid="Button_Clear"
                             Margin="0,0,12,0"
-                            IsEnabled="{x:Bind Context.IsClearCacheButtonEnabled, Mode=OneWay}"
+                            IsEnabled="{Binding IsClearCacheButtonEnabled}"
                             Click="OnClearCacheButtonClicked">
                         </Venz:Button>
                         <ProgressRing
                             Grid.Column="1"
-                            IsActive="{x:Bind Context.IsLocalFilesOperationInProgress, Mode=OneWay}"
+                            IsActive="{Binding IsLocalFilesOperationInProgress}"
                             HorizontalAlignment="Left">
                         </ProgressRing>
                         <TextBlock
                             Grid.Column="1"
+                            FontSize="18"
                             VerticalAlignment="Center"
-                            Text="{x:Bind Context.LocalFileFolderSize, Mode=OneWay}"
-                            Visibility="{x:Bind Context.IsLocalFilesOperationInProgress, Mode=OneWay, Converter={StaticResource TrueToCollapsed}}">
+                            Text="{Binding LocalFileFolderSize}"
+                            Visibility="{Binding IsLocalFilesOperationInProgress, Converter={StaticResource TrueToCollapsed}}">
                         </TextBlock>
                     </Grid>
                 </StackPanel>

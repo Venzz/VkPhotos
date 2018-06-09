@@ -36,7 +36,7 @@ namespace VkPhotos.View.Controls
         public Image()
         {
             DefaultStyleKey = typeof(Image);
-            RegisterPropertyChangedCallback(BackgroundProperty, (sender, property) => OnBackgroundChanged(Background));
+            UniversalDependencyObject.RegisterPropertyChangedCallback(this, BackgroundProperty, nameof(Background), (sender, property) => OnBackgroundChanged(Background));
         }
 
         protected override void OnApplyTemplate()

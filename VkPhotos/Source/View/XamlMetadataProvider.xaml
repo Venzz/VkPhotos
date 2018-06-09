@@ -1,0 +1,9 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Model="using:VkPhotos.Model">
+
+    <Style TargetType="Model:InMemoryPicture"/>
+    <Style TargetType="Model:CachedUserPicture"/>
+    <Style TargetType="Model:UserPicture"/>
+</ResourceDictionary>

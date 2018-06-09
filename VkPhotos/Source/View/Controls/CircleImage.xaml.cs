@@ -1,6 +1,7 @@
 ﻿using System;
 using Venz.Images;
 using Windows.Storage.Streams;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -22,7 +23,7 @@ namespace VkPhotos.View.Controls
         public CircleImage()
         {
             DefaultStyleKey = typeof(CircleImage);
-            RegisterPropertyChangedCallback(BackgroundProperty, (sender, property) => OnBackgroundChanged(Background));
+            UniversalDependencyObject.RegisterPropertyChangedCallback(this, BackgroundProperty, nameof(Background), (sender, property) => OnBackgroundChanged(Background));
         }
 
         protected override void OnApplyTemplate()

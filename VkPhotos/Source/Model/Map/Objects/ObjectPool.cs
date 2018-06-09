@@ -10,6 +10,7 @@ namespace VkPhotos.Model.Map
     {
         private Queue<TCluster> AvailableClusters = new Queue<TCluster>();
         private LinkedList<TObject> AvailableObjects = new LinkedList<TObject>();
+        private List<TCluster> UsedClusters = new List<TCluster>();
         private IDictionary<UInt32, LinkedListNode<TObject>> UsedObjectsDictionary = new Dictionary<UInt32, LinkedListNode<TObject>>();
 
         private Queue<TCluster> PendingClusters = new Queue<TCluster>();
@@ -101,7 +102,11 @@ namespace VkPhotos.Model.Map
                 return PendingClusters.Dequeue();
 
             var TCluster = AvailableClusters.Dequeue();
-            map.Children.Add(TCluster);
+            if (!UsedClusters.Contains(TCluster))
+            {
+                map.Children.Add(TCluster);
+                UsedClusters.Add(TCluster);
+            }
             return TCluster;
         }
 
@@ -141,7 +146,6 @@ namespace VkPhotos.Model.Map
             {
                 var clusterElement = PendingClusters.Dequeue();
                 clusterElement.Hide();
-                map.Children.Remove(clusterElement);
                 AvailableClusters.Enqueue(clusterElement);
             }
             foreach (var value in PendingObjectsDictionary.Values)

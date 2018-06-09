@@ -19,7 +19,7 @@
             </Grid.RenderTransform>
             <Grid
                 x:Name="DetailsControl"
-                Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
+                Background="{ThemeResource AppLowChromeBrush}"
                 HorizontalAlignment="Right"
                 Opacity="0"
                 RenderTransformOrigin="0.5,0.5">
@@ -49,8 +49,8 @@
                         Padding="0"
                         FontSize="20"
                         Foreground="{ThemeResource AppAccentBrush}"
-                        NavigateUri="{x:Bind Context.Author}"
-                        Content="{x:Bind Context.Author}">
+                        NavigateUri="{Binding Author, Mode=OneTime}"
+                        Content="{Binding Author, Mode=OneTime}">
                     </HyperlinkButton>
                 </Controls:DetailItem>
                 <Controls:DetailItem
@@ -58,15 +58,15 @@
                     Grid.Row="2"
                     Margin="12,0,0,20"
                     Header="Date"
-                    Content="{x:Bind Context.Date}">
+                    Content="{Binding Date, Mode=OneTime}">
                 </Controls:DetailItem>
                 <Controls:DetailItem
                     x:Uid="OverlaidContent_PictureViewDetails_Text"
                     Grid.Row="3"
                     Margin="12,0,0,0"
                     Header="Text"
-                    Content="{x:Bind Context.Text}"
-                    Visibility="{x:Bind Context.TextVisibility}">
+                    Content="{Binding Text, Mode=OneTime}"
+                    Visibility="{Binding TextVisibility, Mode=OneTime}">
                 </Controls:DetailItem>
                 <Venz:Button
                     x:Uid="Button_Close"
@@ -77,32 +77,31 @@
                     Click="OnCloseDetailsButtonClicked">
                 </Venz:Button>
             </Grid>
-            <Venz:Image
+            <Controls:Image
                 x:Name="PicturePreviewControl"
                 Images:PictureLoader.Priority="1"
                 Background="{StaticResource AppChromeBrush}"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-                <Venz:Image.RenderTransform>
+                <Controls:Image.RenderTransform>
                     <CompositeTransform/>
-                </Venz:Image.RenderTransform>
-            </Venz:Image>
-            <Venz:Image
+                </Controls:Image.RenderTransform>
+            </Controls:Image>
+            <Controls:Image
                 x:Name="PictureControl" 
                 Images:PictureLoader.Priority="1"
                 Opacity="0">
-            </Venz:Image>
+            </Controls:Image>
         </Grid>
+    </Grid>
+
+    <Core:OverlaidContent.BottomAppBar>
         <CommandBar
             x:Name="CommandBar"
             Opacity="0.65"
-            VerticalAlignment="Bottom"
-            ClosedDisplayMode="Minimal"
-            Opening="OnCommandBarOpening"
-            Closing="OnCommandBarClosing">
+            ClosedDisplayMode="Minimal">
             <AppBarButton
                 x:Uid="Button_Properties"
-                x:Name="PropertiesButton"
                 Label="Properties"
                 Icon="List"
                 Click="OnPropertiesButtonClicked">
@@ -116,5 +115,5 @@
                 Click="OnSaveButtonClicked">
             </AppBarButton>
         </CommandBar>
-    </Grid>
+    </Core:OverlaidContent.BottomAppBar>
 </Core:OverlaidContent>

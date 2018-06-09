@@ -6,13 +6,13 @@
     xmlns:Images="using:Venz.Images"
     xmlns:Controls="using:VkPhotos.View.Controls"
     
-    Width="60"
-    Height="60">
+    Width="72"
+    Height="72">
 
     <Grid x:Name="LayoutControl" RenderTransformOrigin="0.5,0.5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="6"/>
+            <RowDefinition Height="7"/>
         </Grid.RowDefinitions>
         <Grid.RenderTransform>
             <CompositeTransform/>
@@ -20,7 +20,7 @@
         <Rectangle x:Name="PhotoBackground" Fill="White"/>
         <Controls:Image
             x:Name="ImageControl"
-            Margin="4"
+            Margin="5"
             Background="{ThemeResource AppChromeBrush}">
         </Controls:Image>
         <Polyline
@@ -29,7 +29,7 @@
             Points="0,0 2,0 1,1"
             Stretch="Fill"
             StrokeThickness="0"
-            Width="12"
+            Width="14"
             Fill="White">
         </Polyline>
     </Grid>

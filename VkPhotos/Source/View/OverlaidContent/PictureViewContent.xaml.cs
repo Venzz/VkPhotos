@@ -45,6 +45,21 @@ namespace VkPhotos.View
             PictureControl.SetValue(PictureLoader.SourceProperty, photo.Original);
             Transition = new ContinuumTransition();
             SizeChanged += OnSizeChanged;
+
+            DataContext = Context;
+            if (BottomAppBar is CommandBar)
+            {
+                CommandBar = (CommandBar)BottomAppBar;
+                foreach (var command in CommandBar.PrimaryCommands)
+                {
+                    if (command is AppBarButton)
+                    {
+                        var button = (AppBarButton)command;
+                        if (button.Name == nameof(SaveButton))
+                            SaveButton = button;
+                    }
+                }
+            }
         }
 
         private void OnSizeChanged(object sender, SizeChangedEventArgs args)
@@ -54,7 +69,7 @@ namespace VkPhotos.View
             PicturePreviewControl.Height = imageSize.Height;
             PictureControl.Width = imageSize.Width;
             PictureControl.Height = imageSize.Height;
-            DetailsControl.Width = (args.NewSize.Width > 320) ? 320 : args.NewSize.Width;
+            DetailsControl.Width = (args.NewSize.Width > 400) ? 400 : args.NewSize.Width;
         }
 
         protected override void OnClosed()
@@ -81,7 +96,7 @@ namespace VkPhotos.View
 
         private async void OnSaveButtonClicked(Object sender, RoutedEventArgs args)
         {
-            var filePicker = new FileSavePicker();
+            var filePicker = new UniversalFileSavePicker();
             filePicker.FileTypeChoices.Add("Picture", new List<String>() { ".jpg", ".png" });
             filePicker.DefaultFileExtension = ".jpg";
             filePicker.SuggestedFileName = Context.SuggestedFileName;
@@ -148,7 +163,6 @@ namespace VkPhotos.View
             if (opacity < 0)
                 opacity = 0;
             BackgroundControl.Opacity = opacity;
-            CommandBar.Visibility = Visibility.Collapsed;
         }
 
         private void OnPicturesContainerControlManipulationCompleted(Object sender, Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs args)

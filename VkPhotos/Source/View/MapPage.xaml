@@ -13,95 +13,52 @@
 
     <Core:Page.Resources>
         <Style x:Key="Button" TargetType="AppBarButton">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
-            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="{ThemeResource AppBarItemForegroundThemeBrush}"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontFamily" Value="Segoe WP"/>
             <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="Width" Value="48"/>
-            <Setter Property="Height" Value="48"/>
-            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="60"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="AppBarButton">
-                        <Grid x:Name="Root" Background="{TemplateBinding Background}" MaxWidth="{TemplateBinding MaxWidth}" MinWidth="{TemplateBinding MinWidth}">
+                        <Grid x:Name="LayoutRoot">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="ApplicationViewStates">
                                     <VisualState x:Name="FullSize"/>
                                     <VisualState x:Name="Compact"/>
-                                    <VisualState x:Name="Overflow">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ContentRoot">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="OverflowTextLabel">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="OverflowWithToggleButtons">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ContentRoot">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="OverflowTextLabel">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="OverflowTextLabel">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="38,11,0,13"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
                                 </VisualStateGroup>
                                 <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal">
-                                        <Storyboard>
-                                            <PointerUpThemeAnimation Storyboard.TargetName="OverflowTextLabel"/>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="PointerOver">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="Root">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#80000000"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="Content">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="OverflowTextLabel">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <PointerUpThemeAnimation Storyboard.TargetName="OverflowTextLabel"/>
-                                        </Storyboard>
-                                    </VisualState>
+                                    <VisualState x:Name="Normal"/>
                                     <VisualState x:Name="Pressed">
                                         <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="Root">
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="LayoutRoot">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="#99000000"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="Content">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="OverflowTextLabel">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <PointerDownThemeAnimation Storyboard.TargetName="OverflowTextLabel"/>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Disabled">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="Content">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseLowBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="OverflowTextLabel">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseLowBrush}"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppBarItemDisabledForegroundThemeBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <ContentPresenter x:Name="Content" AutomationProperties.AccessibilityView="Raw" Content="{TemplateBinding Icon}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-                            <TextBlock x:Name="OverflowTextLabel" Foreground="{TemplateBinding Foreground}" FontSize="15" FontFamily="{TemplateBinding FontFamily}" HorizontalAlignment="Stretch" Margin="12,11,0,13" TextAlignment="Left" TextWrapping="NoWrap" Text="{TemplateBinding Label}" TextTrimming="Clip" Visibility="Collapsed" VerticalAlignment="Center"/>
+                            <ContentPresenter
+                                x:Name="Content"
+                                AutomationProperties.AccessibilityView="Raw"
+                                Content="{TemplateBinding Icon}"
+                                Foreground="{TemplateBinding Foreground}"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                RenderTransformOrigin="0.5,0.5">
+                                <ContentPresenter.RenderTransform>
+                                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                </ContentPresenter.RenderTransform>
+                            </ContentPresenter>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -110,198 +67,390 @@
         <Converters:BooleanToVisibility x:Key="TrueToCollapsed" TrueValue="Collapsed" FalseValue="Visible"/>
         <Converters:BooleanToVisibility x:Key="TrueToVisible" TrueValue="Visible" FalseValue="Collapsed"/>
         <Converters:BooleanToDouble x:Key="IsUserAuthorizedToOpacity" TrueValue="1" FalseValue="0.35"/>
+        <Style x:Key="SplitViewMenuItemContainer" TargetType="ListViewItem">
+            <Setter Property="Padding" Value="19,0"/>
+            <Setter Property="MinHeight" Value="54"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="OuterContainer" RenderTransformOrigin="0.5,0.5">
+                            <Border.RenderTransform>
+                                <ScaleTransform x:Name="ContentScaleTransform"/>
+                            </Border.RenderTransform>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition From="Pressed" To="Normal">
+                                            <Storyboard>
+                                                <PointerUpThemeAnimation Storyboard.TargetName="TiltContainer"/>
+                                            </Storyboard>
+                                        </VisualTransition>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="TiltContainer"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="CheckboxPressed">
+                                        <Storyboard>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="CheckboxTiltContainer"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="NormalRectangle">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CheckBoxPressedBackgroundThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="CheckGlyph">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CheckBoxPressedForegroundThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="0.4" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="contentPresenter"/>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Stroke" Storyboard.TargetName="NormalRectangle">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CheckBoxDisabledBorderThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="CheckGlyph">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CheckBoxDisabledForegroundThemeBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="SelectedBorder">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="SelectedEarmark">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="SelectedGlyph">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected"/>
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckGlyph"/>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SelectedCheckMark"/>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="SelectionIndicator">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppAccentBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedUnfocused">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckGlyph"/>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SelectedCheckMark"/>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="SelectionIndicator">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppAccentBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="DataVirtualizationStates">
+                                    <VisualState x:Name="DataAvailable"/>
+                                    <VisualState x:Name="DataPlaceholder">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="PlaceholderTextBlock">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="PlaceholderRect">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="MultiSelectStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition From="ListMultiSelect" GeneratedDuration="0:0:0.15" To="NoMultiSelect"/>
+                                        <VisualTransition From="NoMultiSelect" GeneratedDuration="0:0:0.15" To="ListMultiSelect"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="NoMultiSelect"/>
+                                    <VisualState x:Name="ListMultiSelect">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="X" Storyboard.TargetName="CheckboxContainerTranslateTransform"/>
+                                            <DoubleAnimation Duration="0" To="40.5" Storyboard.TargetProperty="X" Storyboard.TargetName="ContentBorderTranslateTransform"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="GridMultiSelect">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SelectedBorder"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="ReorderModeStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition From="ReorderEnabled" GeneratedDuration="00:00:00.2" To="ReorderDisabled"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="ReorderEnabled">
+                                        <Storyboard>
+                                            <DropTargetItemThemeAnimation Storyboard.TargetName="OuterContainer"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Reorderable">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="ScaleX" Storyboard.TargetName="ContentScaleTransform">
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.05"/>
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.2" Value="1.0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="ScaleY" Storyboard.TargetName="ContentScaleTransform">
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.05"/>
+                                                <LinearDoubleKeyFrame KeyTime="00:00:00.2" Value="1.0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="ReorderDisabled"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="ReorderHintStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.2" To="NoReorderHint"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="NoReorderHint"/>
+                                    <VisualState x:Name="BottomReorderHint">
+                                        <Storyboard>
+                                            <DragOverThemeAnimation Direction="Bottom" ToOffset="32" Storyboard.TargetName="ReorderHintContent"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="RightReorderHint">
+                                        <Storyboard>
+                                            <DragOverThemeAnimation Direction="Right" ToOffset="32" Storyboard.TargetName="ReorderHintContent"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="TopReorderHint">
+                                        <Storyboard>
+                                            <DragOverThemeAnimation Direction="Top" ToOffset="0" Storyboard.TargetName="ReorderHintContent"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="LeftReorderHint">
+                                        <Storyboard>
+                                            <DragOverThemeAnimation Direction="Left" ToOffset="0" Storyboard.TargetName="ReorderHintContent"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid x:Name="ReorderHintContent" Background="Transparent">
+                                <Border x:Name="CheckboxTiltContainer" HorizontalAlignment="Left" Margin="0,9.5,0,0" VerticalAlignment="Top">
+                                    <Border x:Name="CheckboxOuterContainer">
+                                        <Border.Clip>
+                                            <RectangleGeometry Rect="0,0,25.5,25.5"/>
+                                        </Border.Clip>
+                                        <Grid x:Name="CheckboxContainer">
+                                            <Grid.RenderTransform>
+                                                <TranslateTransform x:Name="CheckboxContainerTranslateTransform" X="-40.5"/>
+                                            </Grid.RenderTransform>
+                                            <Rectangle x:Name="NormalRectangle" Fill="Transparent" Height="25.5" Stroke="{ThemeResource CheckBoxBorderThemeBrush}" StrokeThickness="2.5" Width="25.5"/>
+                                            <Path x:Name="CheckGlyph" Data="M0,123 L39,93 L124,164 L256,18 L295,49 L124,240 z" Fill="{ThemeResource CheckBoxForegroundThemeBrush}" FlowDirection="LeftToRight" HorizontalAlignment="Center" Height="17" IsHitTestVisible="False" Opacity="0" Stretch="Fill" StrokeThickness="2.5" StrokeLineJoin="Round" VerticalAlignment="Center" Width="18.5"/>
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="ContentContainer">
+                                    <Border x:Name="TiltContainer">
+                                        <Border x:Name="ContentBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                            <Border.RenderTransform>
+                                                <TranslateTransform x:Name="ContentBorderTranslateTransform"/>
+                                            </Border.RenderTransform>
+                                            <Grid>
+                                                <Rectangle x:Name="SelectionIndicator" Fill="Transparent" Opacity="0.5"/>
+                                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                <TextBlock x:Name="PlaceholderTextBlock" AutomationProperties.AccessibilityView="Raw" Foreground="{x:Null}" IsHitTestVisible="False" Margin="{TemplateBinding Padding}" Opacity="0" Text="Xg"/>
+                                                <Rectangle x:Name="PlaceholderRect" Fill="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" IsHitTestVisible="False" Visibility="Collapsed"/>
+                                            </Grid>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                                <Border x:Name="SelectedBorder" BorderBrush="{ThemeResource ListViewItemSelectedBackgroundThemeBrush}" BorderThickness="2.5" IsHitTestVisible="False" Opacity="0">
+                                    <Grid x:Name="SelectedCheckMark" HorizontalAlignment="Right" Height="34" Opacity="0" VerticalAlignment="Top" Width="34">
+                                        <Path x:Name="SelectedEarmark" Data="M0,0 L40,0 L40,40 z" Fill="{ThemeResource ListViewItemSelectedBackgroundThemeBrush}" Stretch="Fill"/>
+                                        <Path x:Name="SelectedGlyph" Data="M0,123 L39,93 L124,164 L256,18 L295,49 L124,240 z" Fill="{ThemeResource ListViewItemCheckThemeBrush}" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="14.5" Margin="0,1,1,0" Stretch="Fill" VerticalAlignment="Top" Width="17"/>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Core:Page.Resources>
 
-    <Core:PageContent>
+    <Core:PageContent Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Core:PageContent.NotificationsLayerContent>
             <View:ProgressIndicator VerticalAlignment="Top"/>
         </Core:PageContent.NotificationsLayerContent>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="720"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="SplitView.DisplayMode" Value="CompactOverlay"/>
-                        <Setter Target="MenuHeader.Visibility" Value="Collapsed"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <SplitView x:Name="SplitView" DisplayMode="Overlay">
-                <SplitView.Pane>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <ListView x:Name="PrimaryMenu" SelectionChanged="OnPrimaryMenuSelectionChanged">
-                            <ListView.ItemContainerTransitions>
-                                <TransitionCollection/>
-                            </ListView.ItemContainerTransitions>
-                            <Venz:SplitViewMenuHeader Text="Vk Photo Map"/>
-                            <Venz:SplitViewMenuItem x:Uid="Page_Map_PrimaryMenu_PublicPhotos">
-                                <Venz:SplitViewMenuItem.Icon>
-                                    <SymbolIcon Symbol="People"/>
-                                </Venz:SplitViewMenuItem.Icon>
-                            </Venz:SplitViewMenuItem>
-                            <Venz:SplitViewMenuItem x:Uid="Page_Map_PrimaryMenu_PersonalPhotos" Opacity="{x:Bind Context.IsUserAuthorized, Mode=OneWay, Converter={StaticResource IsUserAuthorizedToOpacity}}">
-                                <Venz:SplitViewMenuItem.Icon>
-                                    <SymbolIcon Symbol="Contact"/>
-                                </Venz:SplitViewMenuItem.Icon>
-                            </Venz:SplitViewMenuItem>
-                            <Venz:SplitViewMenuItem x:Uid="Page_Map_PrimaryMenu_SharedLink" x:Name="SharedLinkMenuItem">
-                                <Venz:SplitViewMenuItem.Icon>
-                                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72D;"/>
-                                </Venz:SplitViewMenuItem.Icon>
-                            </Venz:SplitViewMenuItem>
-                        </ListView>
-                        <ListView
-                            Grid.Row="1"
-                            SelectionMode="None"
-                            IsItemClickEnabled="True"
-                            ItemClick="OnSecondaryMenuItemClicked">
-                            <ListView.ItemContainerTransitions>
-                                <TransitionCollection/>
-                            </ListView.ItemContainerTransitions>
-                            <Grid>
-                                <Venz:SplitViewMenuItem
-                                    x:Uid="Page_Map_SecondaryMenu_SignIn"
-                                    Visibility="{x:Bind Context.IsUserAuthorized, Mode=OneWay, Converter={StaticResource TrueToCollapsed}}">
-                                    <Venz:SplitViewMenuItem.Icon>
-                                        <SymbolIcon Symbol="AddFriend"/>
-                                    </Venz:SplitViewMenuItem.Icon>
-                                </Venz:SplitViewMenuItem>
-                                <StackPanel
-                                    Margin="2,0,0,0"
-                                    Orientation="Horizontal"
-                                    Background="Transparent"
-                                    Visibility="{x:Bind Context.IsUserAuthorized, Mode=OneWay, Converter={StaticResource TrueToVisible}}">
-                                    <Controls:CircleImage
-                                        Margin="-4,-4,20,-4"
-                                        Width="28"
-                                        Height="28"
-                                        Images:PictureLoader.Source="{x:Bind Context.User.Photo, Mode=OneWay}">
-                                    </Controls:CircleImage>
-                                    <TextBlock Text="{x:Bind Context.User.Name, Mode=OneWay}"/>
-                                </StackPanel>
-                            </Grid>
-                        </ListView>
-                    </Grid>
-                </SplitView.Pane>
-
+        <Venz:SplitView x:Name="SplitView" DisplayMode="Overlay">
+            <Venz:SplitView.Pane>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Grid x:Name="MenuHeader" VerticalAlignment="Top" Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                        <ListViewItem HorizontalAlignment="Left" MinWidth="48" Width="44" Height="44" Tapped="OnPrimaryMenuHeaderIconTapped">
-                            <Venz:SplitViewMenuHeader/>
-                        </ListViewItem>
-                    </Grid>
-                    <Map:MapControl x:Name="Map" Grid.Row="1"/>
-                    <StackPanel
+                    <ListView
+                        x:Name="PrimaryMenu"
+                        SelectionMode="Single"
+                        ItemContainerTransitions="{x:Null}"
+                        ItemContainerStyle="{StaticResource SplitViewMenuItemContainer}"
+                        SelectionChanged="OnPrimaryMenuSelectionChanged">
+                        <Venz:SplitViewMenuHeader Text="Vk Photo Map"/>
+                        <Venz:SplitViewMenuItem x:Uid="Page_Map_PrimaryMenu_PublicPhotos">
+                            <Venz:SplitViewMenuItem.Icon>
+                                <SymbolIcon Symbol="People"/>
+                            </Venz:SplitViewMenuItem.Icon>
+                        </Venz:SplitViewMenuItem>
+                        <Venz:SplitViewMenuItem x:Uid="Page_Map_PrimaryMenu_PersonalPhotos" Opacity="{Binding IsUserAuthorized, Converter={StaticResource IsUserAuthorizedToOpacity}}">
+                            <Venz:SplitViewMenuItem.Icon>
+                                <SymbolIcon Symbol="Contact"/>
+                            </Venz:SplitViewMenuItem.Icon>
+                        </Venz:SplitViewMenuItem>
+                        <Venz:SplitViewMenuItem x:Uid="Page_Map_PrimaryMenu_SharedLink" x:Name="SharedLinkMenuItem">
+                            <Venz:SplitViewMenuItem.Icon>
+                                <BitmapIcon Margin="-6,-12,-6,-12" Width="36" Height="36" UriSource="ms-appx:///Resources/AppBar/Share.png"/>
+                            </Venz:SplitViewMenuItem.Icon>
+                        </Venz:SplitViewMenuItem>
+                    </ListView>
+                    <ListView
                         Grid.Row="1"
-                        Margin="0,0,12,0"
-                        RequestedTheme="Dark"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Background="#66000000">
-                        <AppBarButton
-                            Style="{StaticResource Button}"
-                            Icon="Setting"
-                            Click="OnSettingsButtonClicked">
-                        </AppBarButton>
-                        <AppBarButton
-                            Style="{StaticResource Button}"
-                            Icon="Target"
-                            Click="OnUserLocationButtonClicked">
-                            <FlyoutBase.AttachedFlyout>
-                                <Flyout Placement="Left">
-                                    <Flyout.Content>
-                                        <StackPanel>
-                                            <TextBlock
-                                                x:Uid="Page_Map_UserLocationButton_Warning"
-                                                Margin="0,0,0,8"
-                                                Width="240"
-                                                TextWrapping="Wrap"
-                                                Text="We can't access your location. Allow the application to access your location to be able to move to your current location.">
-                                            </TextBlock>
-                                            <Venz:Button
-                                                x:Uid="Button_LocationSettings"
-                                                Style="{StaticResource TextBlockButtonStyle}"
-                                                Margin="-6,0"
-                                                Label="Open location settings"
-                                                Tapped="OnLocationSettingsButtonTapped">
-                                            </Venz:Button>
-                                        </StackPanel>
-                                    </Flyout.Content>
-                                </Flyout>
-                            </FlyoutBase.AttachedFlyout>
-                        </AppBarButton>
-                        <AppBarButton Style="{StaticResource Button}">
-                            <AppBarButton.Icon>
-                                <PathIcon
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Data="M 19.999943 9.9998956 10.000048 14.999843 1.524401e-4 9.9998956 3.3334509 8.3332459 10.000048 11.666545 16.666644 8.3332459 19.999943 9.9998956 Z M 10.000048 0 19.999943 4.9999475 10.000048 9.9998956 1.0020087e-4 4.9999475 10.000048 0 Z m 9.999895 14.999843 -9.999895 5 -9.99994779913 -5 3.33335069913 -1.666649 6.6665971 3.333298 6.666596 -3.333298 3.333299 1.666649 z">
-                                </PathIcon>
-                            </AppBarButton.Icon>
-                            <AppBarButton.Flyout>
-                                <Flyout Placement="Left">
-                                    <Flyout.Content>
-                                        <Controls:MapSettings x:Name="MapSettings"/>
-                                    </Flyout.Content>
-                                </Flyout>
-                            </AppBarButton.Flyout>
-                        </AppBarButton>
-                        <AppBarButton
-                            Style="{StaticResource Button}"
-                            Icon="Add"
-                            Click="OnZoomInButtonClicked">
-                        </AppBarButton>
-                        <AppBarButton
-                            Style="{StaticResource Button}"
-                            Icon="Remove"
-                            Click="OnZoomOutButtonClicked">
-                        </AppBarButton>
-                    </StackPanel>
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemContainerTransitions="{x:Null}"
+                        ItemContainerStyle="{StaticResource SplitViewMenuItemContainer}"
+                        ItemClick="OnSecondaryMenuItemClicked">
+                        <Grid>
+                            <Venz:SplitViewMenuItem
+                                x:Uid="Page_Map_SecondaryMenu_SignIn"
+                                Visibility="{Binding IsUserAuthorized, Converter={StaticResource TrueToCollapsed}}">
+                                <Venz:SplitViewMenuItem.Icon>
+                                    <SymbolIcon Symbol="AddFriend"/>
+                                </Venz:SplitViewMenuItem.Icon>
+                            </Venz:SplitViewMenuItem>
+                            <StackPanel
+                                Orientation="Horizontal"
+                                Background="Transparent"
+                                Visibility="{Binding IsUserAuthorized, Converter={StaticResource TrueToVisible}}">
+                                <Controls:CircleImage
+                                    Margin="-6,-6,18,-6"
+                                    Width="32"
+                                    Height="32"
+                                    Images:PictureLoader.Source="{Binding User.Photo}">
+                                </Controls:CircleImage>
+                                <TextBlock FontSize="18" Text="{Binding User.Name}"/>
+                            </StackPanel>
+                        </Grid>
+                    </ListView>
                 </Grid>
-            </SplitView>
-            <CommandBar Grid.Row="1">
-                <AppBarButton
-                    x:Uid="Button_Share"
-                    x:Name="ShareButton">
-                    <AppBarButton.Icon>
-                        <FontIcon Glyph="&#xE72D;"/>
-                    </AppBarButton.Icon>
-                    <AppBarButton.Flyout>
-                        <MenuFlyout>
-                            <MenuFlyoutItem x:Uid="Button_Share_ShareMenuItem" Text="Share" Click="OnShareMenuItemClicked"/>
-                            <MenuFlyoutItem x:Uid="Button_Share_CopyMenuItem" Text="Copy link to clipboard" Click="OnCopyMenuItemClicked"/>
-                        </MenuFlyout>
-                    </AppBarButton.Flyout>
-                </AppBarButton>
-                <AppBarButton
-                    x:Uid="Button_Search"
-                    x:Name="SearchButton"
-                    Icon="Find"
-                    IsEnabled="{x:Bind Context.IsSearchButtonEnabled, Mode=OneWay}"
-                    Click="OnSearchButtonClicked">
-                </AppBarButton>
-                <AppBarButton
-                    x:Uid="Button_About"
-                    Icon="Help"
-                    Click="OnAboutButtonClicked">
-                </AppBarButton>
-            </CommandBar>
-        </Grid>
+            </Venz:SplitView.Pane>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="MenuHeader" VerticalAlignment="Top" Background="{ThemeResource AppLowChromeBrush}">
+                    <ListViewItem
+                        Padding="19,0,0,0"
+                        HorizontalAlignment="Left"
+                        Width="64"
+                        Height="54"
+                        VerticalContentAlignment="Center"
+                        Tapped="OnPrimaryMenuHeaderIconTapped">
+                        <Venz:SplitViewMenuHeader/>
+                    </ListViewItem>
+                </Grid>
+                <Map:MapControl x:Name="Map" Grid.Row="1"/>
+                <StackPanel
+                    Grid.Row="1"
+                    Margin="0,0,19,0"
+                    RequestedTheme="Dark"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Background="#66000000">
+                    <AppBarButton
+                        Style="{StaticResource Button}"
+                        Icon="Setting"
+                        Click="OnSettingsButtonClicked">
+                    </AppBarButton>
+                    <AppBarButton
+                        Style="{StaticResource Button}"
+                        Icon="Target"
+                        Click="OnUserLocationButtonClicked">
+                        <FlyoutBase.AttachedFlyout>
+                            <Flyout Placement="Left">
+                                <Flyout.Content>
+                                    <StackPanel>
+                                        <TextBlock
+                                            x:Uid="Page_Map_UserLocationButton_Warning"
+                                            Margin="0,0,0,8"
+                                            Width="240"
+                                            TextWrapping="Wrap"
+                                            Text="We can't access your location. Allow the application to access your location to be able to move to your current location.">
+                                        </TextBlock>
+                                        <Venz:Button
+                                            x:Uid="Button_LocationSettings"
+                                            Margin="-6,0"
+                                            Label="Open location settings"
+                                            Tapped="OnLocationSettingsButtonTapped">
+                                        </Venz:Button>
+                                    </StackPanel>
+                                </Flyout.Content>
+                            </Flyout>
+                        </FlyoutBase.AttachedFlyout>
+                    </AppBarButton>
+                    <AppBarButton Style="{StaticResource Button}">
+                        <AppBarButton.Icon>
+                            <PathIcon
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="M 19.999943 9.9998956 10.000048 14.999843 1.524401e-4 9.9998956 3.3334509 8.3332459 10.000048 11.666545 16.666644 8.3332459 19.999943 9.9998956 Z M 10.000048 0 19.999943 4.9999475 10.000048 9.9998956 1.0020087e-4 4.9999475 10.000048 0 Z m 9.999895 14.999843 -9.999895 5 -9.99994779913 -5 3.33335069913 -1.666649 6.6665971 3.333298 6.666596 -3.333298 3.333299 1.666649 z">
+                            </PathIcon>
+                        </AppBarButton.Icon>
+                        <AppBarButton.Flyout>
+                            <Flyout Placement="Left">
+                                <Flyout.FlyoutPresenterStyle>
+                                    <Style TargetType="FlyoutPresenter">
+                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                        <Setter Property="Padding" Value="19"/>
+                                    </Style>
+                                </Flyout.FlyoutPresenterStyle>
+                                <Flyout.Content>
+                                    <Controls:MapSettings x:Name="MapSettings"/>
+                                </Flyout.Content>
+                            </Flyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+                    <AppBarButton
+                        Style="{StaticResource Button}"
+                        Icon="Add"
+                        Click="OnZoomInButtonClicked">
+                    </AppBarButton>
+                    <AppBarButton
+                        Style="{StaticResource Button}"
+                        Icon="Remove"
+                        Click="OnZoomOutButtonClicked">
+                    </AppBarButton>
+                </StackPanel>
+            </Grid>
+        </Venz:SplitView>
     </Core:PageContent>
+
+    <Core:Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton
+                x:Uid="Button_Share"
+                x:Name="ShareButton"
+                Click="OnShareMenuItemClicked">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Resources/AppBar/Share.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton
+                x:Uid="Button_Search"
+                x:Name="SearchButton"
+                Icon="Find"
+                IsEnabled="{Binding IsSearchButtonEnabled}"
+                Click="OnSearchButtonClicked">
+            </AppBarButton>
+            <AppBarButton
+                x:Uid="Button_About"
+                Icon="Help"
+                Click="OnAboutButtonClicked">
+            </AppBarButton>
+        </CommandBar>
+    </Core:Page.BottomAppBar>
 </Core:Page>

@@ -35,11 +35,7 @@ namespace VkPhotos.View
             if (!App.Model.VkConnectAuthorizationFailed)
             {
                 var vkConnectUri = VkAuthorization.GetVkConnectUri();
-                var status = await Launcher.QueryUriSupportAsync(vkConnectUri, LaunchQuerySupportType.Uri);
-                if ((status == LaunchQuerySupportStatus.Available) || (status == LaunchQuerySupportStatus.AppNotInstalled))
-                    await Launcher.LaunchUriAsync(vkConnectUri);
-                else
-                    App.Model.VkConnectAuthorizationFailed = true;
+                await Launcher.LaunchUriAsync(vkConnectUri);
             }
 
             var protocolFilter = new HttpBaseProtocolFilter();

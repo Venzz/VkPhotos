@@ -35,7 +35,7 @@ namespace VkPhotos.Model
         {
             if (App.Settings.AccessToken != null)
                 return Stats.TrackVisitorAsync(App.Settings.AccessToken);
-            return Task.CompletedTask;
+            return Task.FromResult<Object>(null);
         }
     }
 }

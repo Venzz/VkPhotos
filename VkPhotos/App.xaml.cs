@@ -27,7 +27,7 @@ namespace VkPhotos
         protected override Task StartAsync(Frame frame, ActivationKind activationKind, ApplicationExecutionState previousExecutionState)
         {
             SetupTelemetry();
-            return Task.CompletedTask;
+            return Task.FromResult<Object>(null);
         }
 
         protected override Task InitializeAsync() => Task.Run(() =>
@@ -39,7 +39,7 @@ namespace VkPhotos
         protected override Task OnManuallyActivatedAsync(Frame frame, Boolean newInstance, String args)
         {
             frame.Navigation.Navigate(typeof(MapPage), new FrameNavigation.Parameter("default"));
-            return Task.CompletedTask;
+            return Task.FromResult<Object>(null);
         }
 
         protected override async Task OnUriActivatedAsync(Frame frame, Boolean newInstance, ProtocolActivatedEventArgs args)
