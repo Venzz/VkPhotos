@@ -5,7 +5,6 @@ using Venz.Extensions;
 using Venz.UI.Xaml;
 using VkPhotos.Data.Vk;
 using VkPhotos.ViewModel;
-using Windows.System;
 using Windows.Web.Http.Filters;
 
 namespace VkPhotos.View
@@ -29,19 +28,8 @@ namespace VkPhotos.View
             NotificationIds.Add(Context.ShowProgress(Strings.ProgressIndicator_Loading));
         }
 
-        protected override async void SetState(FrameNavigation.Parameter navigationParameter, FrameNavigation.Parameter stateParameter)
+        protected override void SetState(FrameNavigation.Parameter navigationParameter, FrameNavigation.Parameter stateParameter)
         {
-            base.SetState(navigationParameter, stateParameter);
-            if (!App.Model.VkConnectAuthorizationFailed)
-            {
-                var vkConnectUri = VkAuthorization.GetVkConnectUri();
-                var status = await Launcher.QueryUriSupportAsync(vkConnectUri, LaunchQuerySupportType.Uri);
-                if ((status == LaunchQuerySupportStatus.Available) || (status == LaunchQuerySupportStatus.AppNotInstalled))
-                    await Launcher.LaunchUriAsync(vkConnectUri);
-                else
-                    App.Model.VkConnectAuthorizationFailed = true;
-            }
-
             var protocolFilter = new HttpBaseProtocolFilter();
             foreach (var cookie in protocolFilter.CookieManager.GetCookies(new Uri("https://oauth.vk.com")))
                 protocolFilter.CookieManager.DeleteCookie(cookie);
@@ -59,13 +47,10 @@ namespace VkPhotos.View
             {
                 return;
             }
-            if (await TryFinishAuthorizationAsync(args.Uri))
-            {
-                App.Model.VkConnectAuthorizationFailed = true;
-            }
+            await TryFinishAuthorizationAsync(args.Uri);
         }
 
-        public async Task<Boolean> TryFinishAuthorizationAsync(Uri uri)
+        private async Task<Boolean> TryFinishAuthorizationAsync(Uri uri)
         {
             var accessToken = uri.ToString().Between("access_token=", false, "&", true);
             var userId = uri.ToString().Between("user_id=", false, "&", true);

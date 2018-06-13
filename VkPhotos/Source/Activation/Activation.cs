@@ -1,5 +1,4 @@
-﻿using System;
-using Venz.UI.Xaml;
+﻿using Venz.UI.Xaml;
 using VkPhotos.Model;
 using Windows.ApplicationModel.Activation;
 
@@ -9,7 +8,6 @@ namespace VkPhotos
     {
         public ActivationType Type { get; private set; } = ActivationType.Default;
         public MapViewSettings SharedLinkParameter { get; private set; }
-        public Uri AuthorizationParameter { get; private set; }
         public FrameNavigation.Parameter NavigationParameter { get; private set; } = new FrameNavigation.Parameter("default");
 
         private Activation() { }
@@ -20,18 +18,11 @@ namespace VkPhotos
                 return new Activation();
 
             var uri = ((ProtocolActivatedEventArgs)args).Uri;
-            if (uri.Scheme == $"vk{PrivateData.VkAppId}")
-            {
-                return new Activation() { Type = ActivationType.Authorization, AuthorizationParameter = uri };
-            }
-            else
-            {
-                var activation = new Activation() { Type = ActivationType.SharedLink };
-                activation.SharedLinkParameter = SharedLink.Parse(uri);
-                if (activation.SharedLinkParameter != null)
-                    activation.NavigationParameter = new FrameNavigation.Parameter("share");
-                return activation;
-            }
+            var activation = new Activation() { Type = ActivationType.SharedLink };
+            activation.SharedLinkParameter = SharedLink.Parse(uri);
+            if (activation.SharedLinkParameter != null)
+                activation.NavigationParameter = new FrameNavigation.Parameter("share");
+            return activation;
         }
     }
 }

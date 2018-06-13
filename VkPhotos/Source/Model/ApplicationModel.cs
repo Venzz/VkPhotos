@@ -14,7 +14,6 @@ namespace VkPhotos.Model
         public MapView MapView { get; }
         public LocalFileCollection LocalFiles { get; }
         public Users Users { get; }
-        public Boolean VkConnectAuthorizationFailed { get; set; }
 
 
 
