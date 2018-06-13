@@ -1,4 +1,4 @@
 ﻿namespace VkPhotos
 {
-    public enum ActivationType { Default, Authorization, SharedLink }
+    public enum ActivationType { Default, SharedLink }
 }

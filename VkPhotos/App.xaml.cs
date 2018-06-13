@@ -49,12 +49,6 @@ namespace VkPhotos
                 Model.MapView.SetSharedLinkSettings(activation.SharedLinkParameter);
 
             frame.Navigation.Navigate(typeof(MapPage), activation.NavigationParameter);
-            if (!newInstance && (Page.Active is AuthorizationPage))
-            {
-                if (await((AuthorizationPage)Page.Active).TryFinishAuthorizationAsync(activation.AuthorizationParameter))
-                    App.Diagnostics.Telemetry.Log("Vk Connect Authorization Successful.");
-            }
-
             if (activation.Type == ActivationType.SharedLink)
             {
                 if (activation.SharedLinkParameter != null)
