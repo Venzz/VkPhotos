@@ -223,9 +223,7 @@
       <DependentUpon>MapSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Source\View\Controls\PhotoView.cs" />
-    <Compile Include="Source\View\Controls\ProgressIndicator.xaml.cs">
-      <DependentUpon>ProgressIndicator.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Source\View\Controls\StatusBarProgressIndicator.cs" />
     <Compile Include="Source\View\Converters\Converters.cs" />
     <Compile Include="Source\View\MapPage.xaml.cs">
       <DependentUpon>MapPage.xaml</DependentUpon>
@@ -286,10 +284,6 @@
     <Page Include="Source\View\AuthorizationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Source\View\Controls\ProgressIndicator.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Source\View\MapPage.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="2367Venz.VkPhotos" Publisher="CN=AC627798-581D-4841-B3BA-DD2C725E9A5E" Version="0.4.2.0" />
+  <Identity Name="2367Venz.VkPhotos" Publisher="CN=AC627798-581D-4841-B3BA-DD2C725E9A5E" Version="0.4.3.0" />
   <!--<mp:PhoneIdentity PhoneProductId="9c3d83f0-b3b6-4110-baa2-5b92a425cadd" PhonePublisherId="00000000-0000-0000-0000-000000000000" />-->
   <mp:PhoneIdentity PhoneProductId="caafcde9-145f-474e-8622-8d018725f18c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>

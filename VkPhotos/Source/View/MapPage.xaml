@@ -273,7 +273,7 @@
 
     <Core:PageContent Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Core:PageContent.NotificationsLayerContent>
-            <View:ProgressIndicator VerticalAlignment="Top"/>
+            <View:StatusBarProgressIndicator VerticalAlignment="Top"/>
         </Core:PageContent.NotificationsLayerContent>
         <Venz:SplitView x:Name="SplitView" DisplayMode="Overlay">
             <Venz:SplitView.Pane>
