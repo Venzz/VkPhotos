@@ -27,6 +27,10 @@ namespace VkPhotos.Model
             Files = 0;
         }
 
-        public override String ToString() => (Files > 0) ? String.Format(Strings.Text_LocalFileFolderSize, Files, UIntToBytesSize.Get(Size)) : Strings.Text_LocalFileFolderSize_Empty;
+        public override String ToString()
+        {
+            var numberToBytesSizeConverter = new UIntToBytesSize();
+            return (Files > 0) ? String.Format(Strings.Text_LocalFileFolderSize, Files, numberToBytesSizeConverter.Convert(Size)) : Strings.Text_LocalFileFolderSize_Empty;
+        }
     }
 }

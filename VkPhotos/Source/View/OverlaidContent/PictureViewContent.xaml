@@ -68,14 +68,18 @@
                     Content="{x:Bind Context.Text}"
                     Visibility="{x:Bind Context.TextVisibility}">
                 </Controls:DetailItem>
-                <Venz:Button
-                    x:Uid="Button_Close"
+                <Venz:ButtonLayout
                     Grid.Row="5"
-                    Margin="12,0,0,12"
-                    AvailableWidth="400"
-                    Label="Close"
-                    Click="OnCloseDetailsButtonClicked">
-                </Venz:Button>
+                    MaxButtonWidth="400"
+                    Margin="12,0,12,12"
+                    Columns="2">
+                    <Venz:Button
+                        x:Uid="Button_Close"
+                        Label="Close"
+                        HorizontalAlignment="Stretch"
+                        Click="OnCloseDetailsButtonClicked">
+                    </Venz:Button>
+                </Venz:ButtonLayout>
             </Grid>
             <Venz:Image
                 x:Name="PicturePreviewControl"
