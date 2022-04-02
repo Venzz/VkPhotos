@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="2367Venz.VkPhotos" Publisher="CN=AC627798-581D-4841-B3BA-DD2C725E9A5E" Version="1.4.3.0" />
-  <mp:PhoneIdentity PhoneProductId="caafcde9-145f-474e-8622-8d018725f18c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="1111Venz.VkPhotos" Publisher="CN=AC627798-581D-4841-B3BA-DD2C725E9A5E" Version="1.4.4.0" />
+  <mp:PhoneIdentity PhoneProductId="ca71fa28-6ebb-4a62-b7c3-3ccddcd597ad" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Vk Photo Map</DisplayName>
+    <DisplayName>Photo Map for Vk (Dev)</DisplayName>
     <PublisherDisplayName>Venz</PublisherDisplayName>
     <Logo>Resources\Package\Store.png</Logo>
   </Properties>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="VkPhotos.App">
-      <uap:VisualElements DisplayName="Vk Photo Map" Square150x150Logo="Resources\Package\Square_150x150.png" Square44x44Logo="Resources\Package\Square_44x44.png" Description="A photo manager app for your photos in Vkontakte social network." BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Photo Map for Vk (Dev)" Square150x150Logo="Resources\Package\Square_150x150.png" Square44x44Logo="Resources\Package\Square_44x44.png" Description="A photo manager app for your photos in Vkontakte social network." BackgroundColor="transparent">
         <uap:LockScreen Notification="badge" BadgeLogo="Resources\Package\Badge.png" />
         <uap:DefaultTile Wide310x150Logo="Resources\Package\Wide_310x150.png" Square310x310Logo="Resources\Package\Square_310x310.png" Square71x71Logo="Resources\Package\Square_71x71.png">
           <uap:ShowNameOnTiles>
