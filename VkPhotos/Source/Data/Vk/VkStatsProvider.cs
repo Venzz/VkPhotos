@@ -11,7 +11,7 @@ namespace VkPhotos.Data.Vk
         {
             try
             {
-                var requestUrl = $"https://api.vk.com/method/stats.trackVisitor?access_token={accessToken}&v=5.42";
+                var requestUrl = $"https://api.vk.com/method/stats.trackVisitor?access_token={accessToken}&v=5.131";
                 await Client.GetAsync(requestUrl).ConfigureAwait(false);
             }
             catch (Exception)

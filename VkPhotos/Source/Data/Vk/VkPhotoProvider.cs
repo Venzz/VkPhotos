@@ -15,14 +15,14 @@ namespace VkPhotos.Data.Vk
 
         public async Task<PhotosSearchResult> SearchAsync(Double latitude, Double longitude, DateTime startTime, DateTime endTime, UInt32 offset, UInt32 count, UInt32 radius)
         {
-            var requestUrl = $"https://api.vk.com/method/photos.search?lat={latitude.ToString(CultureInfo.InvariantCulture)}&long={longitude.ToString(CultureInfo.InvariantCulture)}&start_time={startTime.ToUnixTimestamp()}&end_time={endTime.ToUnixTimestamp()}&offset={offset}&count={count}&radius={radius}&access_token={PrivateData.VkAppServiceToken}&v=5.42&photo_sizes=1";
+            var requestUrl = $"https://api.vk.com/method/photos.search?lat={latitude.ToString(CultureInfo.InvariantCulture)}&long={longitude.ToString(CultureInfo.InvariantCulture)}&start_time={startTime.ToUnixTimestamp()}&end_time={endTime.ToUnixTimestamp()}&offset={offset}&count={count}&radius={radius}&access_token={PrivateData.VkAppServiceToken}&v=5.131&photo_sizes=1";
             var stringResponse = await Client.GetAsync(requestUrl).ConfigureAwait(false);
             return ParseUsingNewton(stringResponse);
         }
 
         public async Task<PhotosSearchResult> GetAllAsync(UInt32 owner, String accessToken, UInt32 offset, UInt32 count)
         {
-            var requestUrl = $"https://api.vk.com/method/execute.getUserGeoPhotos?owner_id={owner}&offset={offset}&count={count}&access_token={accessToken}&v=5.42";
+            var requestUrl = $"https://api.vk.com/method/execute.getUserGeoPhotos?owner_id={owner}&offset={offset}&count={count}&access_token={accessToken}&v=5.131";
             var stringResponse = await Client.GetAsync(requestUrl).ConfigureAwait(false);
             return ParseUsingNewton(stringResponse); 
         }
@@ -191,7 +191,7 @@ namespace VkPhotos.Data.Vk
                                 {
                                     if (reader.TokenType == JsonToken.PropertyName)
                                     {
-                                        if ("src".Equals(reader.Value))
+                                        if ("url".Equals(reader.Value))
                                         {
                                             reader.Read();
                                             src = Convert.ToString(reader.Value);

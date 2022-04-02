@@ -24,7 +24,7 @@ namespace VkPhotos
             InitializeComponent();
         }
 
-        protected override Task StartAsync(Frame frame, ActivationKind activationKind, ApplicationExecutionState previousExecutionState)
+        protected override Task StartAsync(Frame frame, ActivationKind activationKind, ApplicationExecutionState previousExecutionState, PrelaunchStage prelaunchStage)
         {
             SetupTelemetry();
             return Task.CompletedTask;
@@ -36,13 +36,13 @@ namespace VkPhotos
             return Task.WhenAll(modelInitializationTask);
         });
 
-        protected override Task OnManuallyActivatedAsync(Frame frame, Boolean newInstance, String args)
+        protected override Task OnManuallyActivatedAsync(Frame frame, Boolean newInstance, PrelaunchStage prelaunchStage, String args)
         {
             frame.Navigation.Navigate(typeof(MapPage), new FrameNavigation.Parameter("default"));
             return Task.CompletedTask;
         }
 
-        protected override async Task OnUriActivatedAsync(Frame frame, Boolean newInstance, ProtocolActivatedEventArgs args)
+        protected override async Task OnUriActivatedAsync(Frame frame, Boolean newInstance, PrelaunchStage prelaunchStage, ProtocolActivatedEventArgs args)
         {
             var activation = Activation.Create(args);
             if (activation.SharedLinkParameter != null)

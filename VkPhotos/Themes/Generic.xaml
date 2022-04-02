@@ -3,5 +3,6 @@
         <ResourceDictionary Source="ms-appx:///Source/View/Controls/CircleImage.xaml"/>
         <ResourceDictionary Source="ms-appx:///Source/View/Controls/Image.xaml"/>
         <ResourceDictionary Source="ms-appx:///Source/View/Controls/DetailItem.xaml"/>
+        <ResourceDictionary Source="ms-appx:///Venz.Core/Source/UI/Xaml/PageContent/PageContent.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
